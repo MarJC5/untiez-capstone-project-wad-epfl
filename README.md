@@ -1,6 +1,6 @@
 # Capstone project proposal outline - Project overview
 
-SITE URL : [www.untiez.com](https://www.untiez.com)
+SITE URL : [https://untiez.herokuapp.com/](https://untiez.herokuapp.com/)
 
  - [Application purpose](#application-purpose)
  - [Run the project](#run-the-project)
