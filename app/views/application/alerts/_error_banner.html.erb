@@ -1,0 +1,16 @@
+<div class="hide-alert">
+  <div class="alert alert--<%= type %>">
+    <!-- ERRORS ICONS -->
+    <% if type === 'notice' %>
+      <%= svg 'info' %>
+    <% else %>
+      <%= svg type %>
+    <% end %>
+    <!-- ERRORS MESSAGES -->
+    <ul class="list-unordered">
+      <% errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

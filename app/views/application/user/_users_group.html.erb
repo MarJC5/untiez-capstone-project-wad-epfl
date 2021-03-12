@@ -1,0 +1,12 @@
+<a class="avatars-group flex" href="<%= url %>">
+  <% users.each do |user| %>
+    <% if user.avatar_upload.present? %>
+      <img src="<%= user.avatar_upload %>"  class="-ml-4 avatar--bordered-small">
+    <% else %>
+      <%= image_tag user.avatar, :class => "-ml-4 avatar--bordered-small" %>
+    <% end %>
+  <% end %>
+  <div class="avatar--bordered-small">
+      <%= svg 'more' %>
+  </div>
+</a>

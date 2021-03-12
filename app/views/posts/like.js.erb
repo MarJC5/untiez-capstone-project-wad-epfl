@@ -1,0 +1,9 @@
+var like = {
+  'id': '<%= @post.id %>',
+  'count': '<%= @post.get_likes.size %>',
+};
+
+
+Likes.liked(like);
+
+Likes.likedMobile(like);

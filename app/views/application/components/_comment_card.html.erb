@@ -1,0 +1,19 @@
+<div class="comment-card">
+  <div class="comment-content">
+    <!-- USER INFO -->
+    <%= render partial: 'application/user/user_card_text',
+               locals: {
+                  url: url,
+                  avatar: avatar,
+                  pseudo: pseudo,
+                  avatar_upload: avatar_upload,
+                  firstname: firstname,
+                  lastname: lastname,
+                  text: text,
+                  verified: verified
+                }
+    %>
+    <!-- COMMENT BODY -->
+    <p class="comment-text"><%= comment %></p>
+  </div>
+</div>

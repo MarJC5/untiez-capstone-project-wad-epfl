@@ -1,0 +1,189 @@
+en:
+  components:
+    back_link: 'Back'
+    joiners_info:
+      leave: 'Leave'
+      join: 'Join'
+      count: 'Participants'
+    comment_form:
+      comment: 'Comments'
+      placeholder: 'Share your opinion here...'
+      send: 'Send'
+    copyright: 'all rights reserved'
+    sidenav:
+      title:
+        friends_suggestion: 'Friends suggestion'
+        quickpost: 'Quickpost'
+      button:
+        more: 'More options'
+      quickpost:
+        title: "Title"
+        body : "Something to share?"
+  layout:
+    nav:
+      welcome: 'Welcome'
+      logout: 'Logout'
+      login: 'Login'
+      search: 'Search'
+      signin: 'Sign in'
+      signup: 'Sign up'
+      terms: 'Terms'
+      settings: 'Settings'
+      home: 'Home'
+      discover: 'Discover'
+      account: 'Account'
+      add: 'New post'
+    text:
+      close: "Close"
+      read_more: 'Read more'
+      update: 'Update'
+      last_update: 'Last update'
+      no_account: "Have not an account?"
+      has_account: "Already an account?"
+    button:
+      cancel: 'Cancel'
+      delete: 'Delete'
+      edit: 'Edit'
+      confirmation: 'Are you sure?'
+  cards:
+    post:
+      more: 'Read more'
+      join: 'Join'
+  user:
+    alert:
+      missing_letter: "is invalid, should contain minimum 1 letter."
+      strong_password: "must at least contains a lowercase letter, a uppercase, a digit and 8+ chars"
+      create: "User account was successfully created."
+      create_error: "Ooops something went wrong, your account creatation isn't valid."
+      update: "User account was successfully updated."
+      update_error: "Ooops something went wrong, updated unsuccessful."
+      destroy: "User account was successfully destroyed."
+      not_allowed: "You are not allowed to see this page."
+      please_login: "Please login to access this page."
+    button:
+      follow: 'Follow'
+      unfollow: "Unfollow"
+      edit: 'Edit'
+    account:
+      text:
+        history: 'Post history'
+        edit_user: "Edit profile"
+        living_at: "Location"
+        see_profile: 'See profile'
+        see_image: 'See image'
+        more: 'Read more'
+        last_posts: 'Last posts'
+        last_trips: 'Trips recently joined'
+        no_join: "hasn't join a trip yet."
+        no_post: "No posts has been created by"
+      edit: 'Edit personal info'
+  comment:
+    alert:
+      create: "Comment was successfully created."
+      create_error: "Error while creating your comment, please try again."
+  home:
+    banner:
+      title: "Join the community!"
+      button: "discover"
+    cards:
+      photoshoot:
+        title: 'Photoshoot'
+        text: 'Pictures made by the community.'
+      tips:
+        title: 'Tips'
+        text: 'Needs some travel advice?'
+      trips:
+        title: 'Trip-proposal'
+        text: "Let's join a trip!"
+      create:
+        title: 'Create a post'
+        text: 'Something to share?'
+  legal:
+    title: 'Public Network Terms of Service'
+    create: 'Create a legal terms'
+    alert:
+      create: "Your legal terms was successfully created."
+      create_error: "Ooops something went wrong, creation unsuccessful."
+      update: "Your legal terms was successfully updated."
+      update_error: "Ooops something went wrong, update unsuccessful."
+      destroy: "Your legal terms was successfully deleted."
+  post:
+    alert:
+      create: "Your post was successfully created."
+      create_error: "Ooops something went wrong, creation unsuccessful."
+      update: "Your post was successfully updated."
+      update_error: "Ooops something went wrong, update unsuccessful."
+      destroy: "Your post was successfully deleted."
+      leave_trip: "You have leave the trip."
+      please_login: "Please login or sign up to see the full content."
+    title:
+      edit: 'Edit the post'
+      new: 'Create a post'
+  session:
+    alert:
+      create: "Login successfull, welcome back "
+      create_error: "Email or password were invalid. Please try again."
+      logout: "You have been successfully logged out, see you soon !"
+  search:
+    text: 'Result for'
+    members: 'Members'
+  date:
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_month_names:  [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    month_names: [~, January, February,  March,  April,  May,  June,  July,  August,  September,  October,  November, December]
+    formats:
+      day_month: "%b %d"
+      default: "%Y-%m-%d"
+      hour: "%H:%M"
+      long: "%A %d %B %Y"
+      long_month: "%d %B %Y"
+      month_abbr: "%d %b %Y"
+  time:
+    formats:
+      default: "%a, %d %B %Y"
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one: '1 day ago'
+        other: '%{count} days ago'
+  alert:
+    need_password_for_update: "Please enter your password to confirm the change"
+    no_data: "No %{item} has been found!"
+  helpers:
+    label:
+      session:
+        email: 'Email'
+        password: 'Password'
+      user:
+        avatar_upload: 'Upload avatar'
+        firstname: 'Firstname'
+        lastname: 'Lastname'
+        email: 'Email'
+        pseudo: 'Pseudo'
+        location: 'City, country'
+        bio: 'Bio'
+        password: 'Password'
+        password_validation: 'Password validation'
+        role: 'Role'
+      post:
+        category_id: 'Category'
+        title: 'Title'
+        location: 'City, country'
+        body: 'Description'
+    placeholder:
+      post:
+        body: "Your text..."
+    create: 'Create'
+    update: 'Update'
+    cancel: 'Cancel'
+    delete_account: 'Delete user account'

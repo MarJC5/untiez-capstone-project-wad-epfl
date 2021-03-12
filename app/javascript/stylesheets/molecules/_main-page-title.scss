@@ -1,0 +1,14 @@
+.main-page-title {
+  display: flex;
+  margin-bottom: 1.5rem;
+
+  .main-page-title__subtitle {
+    margin: 0.5rem;
+  }
+
+  &--center {
+    @extend .main-page-title;
+    flex-direction: column;
+    align-items: center;
+  }
+}

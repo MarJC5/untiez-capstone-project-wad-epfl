@@ -1,0 +1,20 @@
+<div class="friends-suggestion">
+  <h4><%= t('components.sidenav.title.friends_suggestion') %></h4>
+  <div class="friends-suggestion__list">
+    <% @user_suggestion.each do |user| %>
+      <%= render partial: 'application/user/user_card_text',
+                 locals: {
+                    url: user_path(user),
+                    avatar: user.avatar,
+                    avatar_upload: user.avatar_upload,
+                    pseudo: user.pseudo,
+                    firstname: '',
+                    lastname: '',
+                    verified: user.confirmed,
+                    text: t('user.account.text.see_profile'),
+                    user: user
+                  }
+      %>
+    <% end %>
+  </div>
+</div>

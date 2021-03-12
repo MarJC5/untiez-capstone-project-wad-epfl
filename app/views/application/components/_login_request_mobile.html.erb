@@ -1,0 +1,19 @@
+<% if current_user == nil && current_page?("/#{I18n.locale}") || current_page?("/")  %>
+  <div id="login-request-screen" class="md:hidden">
+    <div class="login-request">
+      <%= form_tag(sessions_path) do %>
+        <div class="p-6 flex flex-col">
+          <button id="short-login-mobile" type="button" name="button" class="mb-4 flex justify-end items-center"><%= t('layout.text.close') %> <%= svg 'close' %></button>
+          <%= text_field_tag :email, nil, class: 'input mb-4', placeholder: 'user@untiez.com' %>
+          <%= password_field_tag :password, nil, class: 'input mb-4', placeholder: '******' %>
+          <%= submit_tag t('layout.nav.signin'), class: 'btn--black mb-4' %>
+
+          <%= link_to signup_path, class: 'text-xs flex flex-col items-center' do %>
+           <%= t('layout.text.no_account') %><span class="font-bold"> <%= t('layout.nav.signup') %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

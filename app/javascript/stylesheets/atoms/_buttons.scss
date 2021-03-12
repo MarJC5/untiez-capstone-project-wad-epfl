@@ -1,0 +1,141 @@
+// BUTTON MIXIN
+@mixin button-type($main-color, $text-color) {
+  border: 0;
+  background-color: rgba($main-color, 1);
+  color: $text-color;
+
+  &:hover {
+    background-color: rgba($main-color, 0.5);
+  }
+}
+// GENERAL BUTTON & ALTERNATIVE
+
+.btn {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.50rem;
+  min-width: 100px;
+  border-width: 1px;
+  border-color: $black;
+  transition: 0.3s;
+  font-size: small;
+  background-color: #FFF;
+  cursor: pointer;
+
+  &:hover {
+    color: #FFF;
+    background-color: $black;
+  }
+
+  &--primary {
+    @extend .btn;
+    @include button-type($ocean, #FFF);
+  }
+
+  &--danger {
+    @extend .btn;
+    @include button-type($tomato, #FFF);
+  }
+
+  &--validate {
+    @extend .btn;
+    @include button-type($tree, #FFF);
+  }
+
+  &--black {
+    @extend .btn;
+    @include button-type($black, #FFF);
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: inherit;
+    }
+  }
+}
+// BUTTON WITH TEXT & SVG
+
+.btn--svg-text {
+  @extend .btn;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  min-width: auto;
+
+  svg {
+    margin-right: 0.25rem;
+    width: 15px;
+    height: 15px;
+  }
+
+  &--black {
+    @extend .btn--svg-text;
+    color: #FFF;
+    background-color: $black;
+
+    &:hover {
+      color: $black;
+      background-color: #FFF;
+    }
+  }
+
+  &--validate {
+    @extend .btn--svg-text;
+    color: #FFF;
+    border-color: $tree;
+    background-color: $tree;
+
+    &:hover {
+      color: $tree;
+      background-color: #FFF;
+    }
+  }
+
+  &--mustard {
+    @extend .btn--svg-text;
+    color: $mustard;
+    border-color: $mustard;
+    background-color: #FFF;
+
+    &:hover {
+      color: #FFF;
+      background-color: $mustard;
+    }
+  }
+}
+// BUTTON INPUT
+
+.btn-input {
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 0.50rem;
+  border-bottom-right-radius: 0.50rem;
+  border-width: 1px;
+  border-left: none;
+  border-color: $stone;
+  transition: 0.3s;
+  font-size: small;
+
+  &:hover {
+    color: rgba($black, 0.8);
+  }
+}
+// Like
+
+.unlike,
+.unlike-mobile {
+  svg {
+    stroke: $tomato;
+    fill: $tomato;
+  }
+}
+
+.like,
+.like-mobile {
+  svg {
+    stroke: $black;
+    fill: none;
+  }
+}

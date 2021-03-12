@@ -1,0 +1,33 @@
+// FORM CARD
+
+.form-card {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  textarea {
+    height: 250px;
+  }
+}
+
+#post-creation-form.post-category-form {
+  .photoshoot-form-departure,
+  .post-form-image,
+  .post-form-location {
+    display: none;
+  }
+}
+
+#post-creation-form.tips-category-form {
+  .photoshoot-form-departure,
+  .post-form-location {
+    display: none;
+  }
+}
+
+#post-creation-form.photoshoot-category-form {
+  .photoshoot-form-departure {
+    display: none;
+  }
+}

@@ -1,0 +1,103 @@
+<div class="login-wrapper">
+  <div class="signup-form">
+    <div>
+      <hr class="md:hidden border-1">
+      <div class="signup-card">
+        <%= form_for(@user) do |f| %>
+          <!-- FORM -->
+          <div class="signup-card-avatar mb-4">
+            <%= f.label :avatar_upload %>
+            <div class="upload-avatar-wrapper">
+              <button class="upload-btn">
+                <%= svg 'user' %>
+              </button>
+              <%= f.file_field :avatar_upload, id: 'file-upload' %>
+            </div>
+            <label id="file-name"></label>
+          </div>
+          <div class="flex">
+            <div class="w-1/2">
+              <div class="mr-4 mb-6">
+                <%= f.label :firstname %>
+                <div>
+                  <%= f.text_field :firstname, class: 'input', placeholder: 'John'%>
+                </div>
+              </div>
+              <div class="mr-4 mb-6">
+                <%= f.label :lastname %>
+                <div>
+                  <%= f.text_field :lastname, class: 'input', placeholder: 'Doe'%>
+                </div>
+              </div>
+            </div>
+            <div class="w-1/2">
+              <div class="mb-6">
+                <%= f.label :email %>
+                <div>
+                  <%= f.text_field :email, class: 'input', placeholder: 'user@untiez.com'%>
+                </div>
+              </div>
+              <div>
+                <%= f.label :pseudo %>
+                <div>
+                  <%= f.text_field :pseudo, class: 'input', placeholder: 'e.g. untiez'%>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="mb-6">
+              <%= f.label :location %>
+              <div>
+                <%= f.text_field :location, class: 'input', placeholder: 'e.g. Lausanne', id: 'address-input'%>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <%= f.label :bio %>
+              <div>
+                <%= f.text_area :bio, class: 'input h-auto' %>
+              </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row">
+              <div class="mb-6 w-full md:mr-4 md:w-1/2">
+                <%= f.label :password %>
+                <div>
+                  <%= f.password_field :password, class: 'input'%>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2">
+                <%= f.label :password_validation, class: 'whitespace-no-wrap' %>
+                <div>
+                  <%= f.password_field :password_validation, class: 'input'%>
+                </div>
+              </div>
+            </div>
+
+           <div class="mt-6 md:mt-2 flex flex-col items-center">
+             <div>
+               <%= f.submit t('layout.nav.signup'), class: 'btn--black' %>
+             </div>
+             <%= link_to login_path, class: 'text-sm mb-4 flex flex-col items-center' do %>
+              <%= t('layout.text.has_account') %> <span class="font-bold"><%= t('layout.nav.login') %></span>
+             <% end %>
+           </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="signup-image-container flex flex-col">
+      <!-- FORM ERRORS -->
+      <%= render partial: 'application/alerts/error_invalid', locals:{ item: @user}%>
+      <h1><%= t('layout.nav.signup') %></h1>
+      <h3>It's time to <span class="gradient-text">untiez</span> from the routine.</h3>
+      <%= svg 'travel-bg-2' %>
+    </div>
+  </div>
+</div>
+<!-- write file name after upload -->
+<script type="text/javascript">
+  document.querySelector("#file-upload").onchange = function(){
+    document.querySelector("#file-name").textContent = this.files[0].name;
+  }
+</script>

@@ -1,0 +1,20 @@
+<div class="form-card">
+  <%= form_for(legal) do |f| %>
+    <div class="my-4">
+      <%= f.label :title %>
+      <div>
+        <%= f.text_field :title, class: 'input', placeholder: t('layout.nav.terms') %>
+      </div>
+    </div>
+    <div class="my-4">
+      <%= f.label :body %>
+      <div>
+        <%= f.text_area :body, class: 'input', placeholder: '...' %>
+      </div>
+    </div>
+     <div class="my-4 flex justify-between lg:justify-center items-center">
+       <%= f.submit class: 'btn--primary' %>
+       <a href="<%= legals_path %>" class="btn--black ml-4 text-center"><%= t('layout.button.cancel') %></a>
+     </div>
+  <% end %>
+</div>

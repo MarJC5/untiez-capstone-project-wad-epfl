@@ -1,0 +1,11 @@
+<div id="search-page" class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <h2 class="text-center"><%= t('legal.create') %></h2>
+    <%= render partial: 'form', locals: {legal: @legal } %>
+  </div>
+</div>

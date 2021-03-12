@@ -1,0 +1,156 @@
+<div id="legal-page" class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- MOBILE BACK BTN -->
+    <%= render partial: 'application/components/back', locals:{redirect: styleguide_index_path}%>
+    <!-- PAGE CONTENT-->
+    <h1 class="md:mb-8">Organisms</h1>
+    <div class="styleguide-content">
+      <div class="accordion">
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-1" class="hidden" />
+          <label for="panel-1" class="relative block px-2 py-4 border-b">Headers</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel1">
+              <div class="styleguide-content__headers">
+                <h5 class="demo-title">Large screen header</h5>
+                <div class="demo-header">
+                  <header class="general-header--large-screen">
+                    <div class="general-header--large-screen__content">
+                      <div class="general-header--large-screen__logo">
+                        <h1 class="logo">
+                          <a href="/">
+                            <span>u</span>ntiez
+                          </a>
+                        </h1>
+                      </div>
+                      <div class="general-header--large-screen__search">
+                        <%= form_tag search_path, method: 'GET' do %>
+                          <%= text_field_tag 'q', nil, class: 'input-btn', placeholder: 'Search', required: true %>
+                          <%= button_tag 'Search', class: 'btn-input', method: 'submit' do %>
+                            <%= svg 'search' %>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <div class="general-header--large-screen__login">
+                        <%= render partial: 'application/user/user_header'%>
+                      </div>
+                    </div>
+                  </header>
+                </div>
+                <h5 class="demo-title">Mobile header</h5>
+                <div class="demo-header">
+                  <header class="general-header">
+                    <div class="general-header__top">
+                      <div class="general-header__top__logo">
+                        <h1 class="logo--black">
+                          <a href="/">
+                            <span>u</span>ntiez
+                          </a>
+                        </h1>
+                      </div>
+                      <div class="general-header__top__search">
+                        <button class="header-search-button" type="button" name="button">
+                          <%= svg 'align-right' %>
+                        </button>
+                      </div>
+                    </div>
+                  </header>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-2" class="hidden" />
+          <label for="panel-2" class="relative block px-2 py-4 border-b">Side bars</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel2">
+              <div class="styleguide-content__side">
+                <h5 class="demo-title">Main sidebar nav</h5>
+                <div class="demo-side">
+                  <%= render partial: 'application/layouts/sidebar_account'%>
+                </div>
+                <h5 class="demo-title">Discover sidebar options</h5>
+                <div class="demo-side">
+                  <div class="sidebar-quickpost">
+                    <h4>Quickpost</h4>
+                    <%= form_for('/') do |f| %>
+                      <%= f.text_field :title, class: 'input mb-4', placeholder:"Title" %>
+                      <%= f.text_area :body, class: 'input', rows: '8', cols: '80', placeholder:"Something to share ?" %>
+                      <%= f.text_field :category_id, class: 'hidden', value: 1 %>
+                      <%= f.text_field :user, class: 'hidden', value: current_user.id %>
+                      <div class="sidebar-quickpost__buttons">
+                        <%= f.submit 'Create post', class: 'btn--svg-text--black' %>
+                        <a class="btn--svg-text"  href="<%= new_post_path %>"><%= svg 'more' %> More options</a>
+                      </div>
+                    <% end %>
+                  </div>
+                  <hr />
+                  <div class="friends-suggestion">
+                    <h4>Friends suggestion</h4>
+                    <div class="friends-suggestion__list">
+                      <% [current_user, current_user, current_user].each do |user| %>
+                        <%= render partial: 'application/user/user_card_text',
+                                   locals: {
+                                      url: user_path(user),
+                                      avatar: user.avatar,
+                                      avatar_upload: user.avatar_upload,
+                                      pseudo: user.pseudo,
+                                      firstname: '',
+                                      lastname: '',
+                                      verified: false,
+                                      text: 'See profile',
+                                      user: user
+                                    }
+                        %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="demo-title">User show info view</h5>
+                <div class="demo-side">
+                  <%= render partial: 'application/user/user_show_card',
+                             locals: {
+                               user_url: follow_path(current_user),
+                               user_avatar: current_user.avatar,
+                               user_avatar_upload: current_user.avatar_upload,
+                               user_firstname: current_user.firstname,
+                               user_lastname: current_user.lastname,
+                               user_verified: current_user.confirmed,
+                               user_followees_num: current_user.followers.count,
+                               user_followers_num: current_user.followees.count,
+                               user: current_user.id,
+                               user_pseudo: current_user.pseudo,
+                               user_location: current_user.location,
+                               user_bio: current_user.bio,
+                             }
+                  %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-content__side--right">
+    <h4>Style guide</h4>
+    <%= render partial: 'application/components/styleguide_nav'%>
+  </div>
+</div>
+
+<!--
+<div class="w-full">
+  <input type="checkbox" name="panel" id="panel-1" class="hidden" />
+  <label for="panel-1" class="relative block px-2 py-4 border-b">Buttons</label>
+  <div class="accordion__content mt-4">
+    <div class="accordion__body" id="panel1">
+
+    </div>
+  </div>
+</div>
+  -->

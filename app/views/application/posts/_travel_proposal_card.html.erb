@@ -1,0 +1,50 @@
+<div class="post-card--proposal">
+  <!-- POST USER CARD -->
+  <%= render partial: 'application/user/user_card_text',
+              locals: {
+                url: user_path,
+                avatar: avatar,
+                pseudo: pseudo,
+                avatar_upload: avatar_upload,
+                firstname: firstname,
+                lastname: lastname,
+                verified: verified,
+                text: text
+               }
+  %>
+  <!-- POST CARD BODY -->
+  <div class="post-card__description">
+    <p><%= body %></p>
+    <ul>
+      <li>
+        <%= svg 'pin' %> <p><%= location %></p>
+      </li>
+      <li>
+        <%= svg 'calendar' %> <p><%= travel_date %></p>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  <div class="post-card-buttons">
+    <div class="post-card-buttons__read">
+      <a href="<%= post_url %>"><%= t('cards.post.more') %></a>
+    </div>
+    <!-- JOINERS LIST -->
+    <% if logged_in? %>
+      <div class="post-card-buttons__users">
+        <% if joiners.present? %>
+          <%= render partial: 'application/user/users_group',
+                     locals: {
+                       url: joiners_url,
+                        users: joiners
+                      }
+          %>
+        <% else %>
+          <a href="<%= post_url %>">
+            <p><%= svg 'add' %> <%= t('cards.post.join') %></p>
+          </a>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

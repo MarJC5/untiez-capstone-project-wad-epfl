@@ -1,0 +1,17 @@
+<div class="user-card--anonyme">
+  <a href="<%= signin %>">
+    <div class="user-card--anonyme__avatar">
+      <div class="avatar-anonyme rounded-full">
+          <%= svg 'user' %>
+      </div>
+      <h4>
+          <%= t('layout.nav.login') %>
+      </h4>
+    </div>
+  </a>
+  <div class="user-info">
+    <p>
+      <%= t('layout.text.no_account') %> <a class="underline" href="<%= signup %>"><%= t('layout.nav.signup') %> </a>
+    </p>
+  </div>
+</div>

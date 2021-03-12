@@ -1,0 +1,20 @@
+<div id="search-page" class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <h2><%= t('legal.title') %></h2>
+    <!-- LEGALS TERMS LIST-->
+    <ul>
+      <% @legals.each do |legal| %>
+        <li class="my-6">
+          <h4 class="gradient-text">
+            <a href="<%= legal_path(legal) %>"><%= legal.title %></a>
+          </h4>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

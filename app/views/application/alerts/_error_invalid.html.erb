@@ -1,0 +1,6 @@
+<!-- FLASH MESSAGE -->
+<ul class="list-hidden text-red-500 my-6 text-center pl-0">
+  <% item.errors.full_messages.each do |message| %>
+    <li class="mb-4"><%= message %></li>
+  <% end %>
+</ul>

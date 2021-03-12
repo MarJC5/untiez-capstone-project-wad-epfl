@@ -1,0 +1,226 @@
+// MOBILE NAVIGATION BAR
+
+.main-navbar-mobile {
+  background: -webkit-linear-gradient(left, $black, rgba(22, 24, 30, 0.8));
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  margin: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  //border-top: 1px solid $stone;
+  svg {
+    stroke: #FFF;
+  }
+
+  .avatar {
+    width: 25px;
+    height: 25px;
+  }
+
+  .user-card--anonyme__avatar {
+    display: flex;
+    align-items: center;
+
+    .avatar-anonyme {
+      height: 35px;
+      width: 35px;
+      margin-right: 0.5rem;
+
+      svg {
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  .main-navbar__nav {
+    width: 100%;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+
+      li {
+        display: flex;
+
+        svg {
+          margin: 0;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.main-navbar__account,
+.main-navbar__nav {
+  a {
+    p {
+      display: none;
+    }
+
+    &:hover {
+      @extend .gradient-text;
+    }
+  }
+}
+// LARGE SCREEN
+
+.main-navbar {
+  height: 100%;
+
+  .main-navbar__current-user {
+    .relative {
+      border: double 3px transparent;
+      border-radius: 80px;
+      background-image: linear-gradient(white, white), radial-gradient(circle at bottom left, $ocean, rgba($ocean, 0.8));
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+
+      .avatar {
+        padding: 0.15rem;
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .user-info {
+      p {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.main-navbar--admin {
+  @extend .main-navbar;
+  margin-top: 2rem;
+}
+@media (min-width: $medium) {
+  .main-navbar-mobile {
+    display: none;
+  }
+
+  .main-navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+
+    h6 {
+      padding: 0.5rem;
+      border-bottom: 1px solid $stone;
+    }
+
+    .user-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .user-card {
+      .avatar {
+        height: 60px;
+        width: 60px;
+        border: #FFF 2rem;
+      }
+
+      .user-info {
+        margin-top: 0.5rem;
+      }
+    }
+
+    .card-image--rounded-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .main-navbar__current-user {
+      display: flex;
+      padding: 0 0 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main-navbar__account,
+    .main-navbar__nav {
+      ul {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 0.5rem;
+        font-size: small;
+
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0.25rem 0;
+          padding: 0.25rem 0;
+
+          a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            span {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .span-icon {
+              width: 20%;
+            }
+
+            .span-text {
+              width: 80%;
+            }
+
+            svg {
+              width: 15px;
+              margin-right: 1rem;
+              stroke: $ocean;
+            }
+
+            p {
+              margin-bottom: 0;
+              display: flex;
+              align-items: center;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+
+    .user-card--anonyme__avatar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      h4 {
+        margin: 0 0.5rem;
+      }
+    }
+
+    .main-navbar__account {
+      ul {
+        padding: 0 auto;
+      }
+    }
+  }
+}

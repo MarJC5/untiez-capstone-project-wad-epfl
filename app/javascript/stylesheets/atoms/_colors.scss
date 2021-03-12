@@ -1,0 +1,15 @@
+// MAIN COLORS
+$mustard: #EFC251;
+$rock: #D5D7D2;
+$stone: #ECEBED;
+$black: #16181E;
+$tree: #24AC70;
+$tomato: #FB6440;
+$ocean: #0D619D; // GRADIENT
+
+.gradient-text {
+  background: -webkit-linear-gradient(left, rgba($ocean, 0.9), rgba($ocean, 0.4));
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

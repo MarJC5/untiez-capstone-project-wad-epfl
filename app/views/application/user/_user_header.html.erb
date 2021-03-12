@@ -1,0 +1,50 @@
+<% if logged_in? %> <!-- Is logged ? -->
+<div class="header-logged-user">
+    <div class="user-card--text">
+      <div class="relative">
+        <% if current_user.avatar_upload.present? %>
+          <img src="<%= current_user.avatar_upload %>" alt="<%= current_user.firstname %> <%= current_user.lastname %> - profile picture" class="avatar"/>
+          <% else %>
+            <%= image_tag current_user.avatar, :class => "avatar" %>
+        <% end %>
+      </div>
+      <div class="user-info">
+        <small><%= t('layout.nav.welcome') %> <span class="user-card-toggle-open">▾</span></small>
+        <p class="gradient-text"><span>@<%= current_user.pseudo %></span>
+      </div>
+    </div>
+    <div class="header-logged-user__links hidden opacity-0">
+      <ul>
+        <li>
+          <div>
+            <%= svg 'logout' %> <%= link_to t('layout.nav.logout'), session_path(1), method: :delete%>
+          </div>
+        </li>
+        <li>
+          <div>
+            <%= svg 'user' %> <%= link_to t('layout.nav.account'), user_path(current_user)%>
+          </div>
+        </li>
+        <li>
+          <hr class="my-4"/>
+          <div class="flex justify-center">
+            <% I18n.available_locales.each do |locale| %>
+              <%= link_to locale, url_for(locale: locale), class: 'locale-link mx-2 uppercase' %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+</div>
+<% else %>
+<div class="header-login-user">
+  <ul>
+    <li>
+      <%= link_to t('layout.nav.signin'), login_path %>
+    </li>
+    <li class="gradient-text font-bold">
+      <%= link_to t('layout.nav.signup'), signup_path %>
+    </li>
+  </ul>
+</div>
+<% end %>

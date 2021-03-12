@@ -1,0 +1,35 @@
+<div id="follows-page" class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <h2><span class="gradient-text"><%= @all_joiners.count %></span> <%= t('components.joiners_info.count') %></h2>
+    <p class="flex justify-center"><%= @post.title %> - by <span class="font-bold ml-1 gradient-text"> @<%= @post.user.pseudo %></span></p>
+    <%= link_to post_path(params[:id]), class: 'flex justify-center items-center' do %>
+      <span class="mr-2"><%= svg 'arrow-left-circle' %></span> <%= t('components.back_link') %>
+    <% end %>
+    <hr class="my-10"/>
+    <!-- list of joiners -->
+    <div class="joiners">
+      <div class="joiner-list flex flex-wrap justify-center">
+        <% @all_joiners.each do |joiner| %>
+          <%= render partial: 'application/user/user_card_text',
+                     locals: {
+                        url: user_path(joiner),
+                        avatar: joiner.avatar,
+                        avatar_upload: joiner.avatar_upload,
+                        pseudo: joiner.pseudo,
+                        verified: joiner.confirmed,
+                        firstname: '',
+                        lastname: '',
+                        text: t('user.account.text.see_profile'),
+                        user: joiner
+                      }
+          %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

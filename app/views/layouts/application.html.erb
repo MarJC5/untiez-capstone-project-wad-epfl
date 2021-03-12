@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Untiez</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= render 'application/favicon' %>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no" viewport-fit="cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' /> <!-- MapBox stylesheet -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <%= render partial: 'application/layouts/header'%>
+    <!-- FLASH MESSAGE -->
+    <% if flash.any? %>
+      <% flash.each do |name, message| %>
+        <%= render partial: 'application/alerts/error_banner',
+                  locals: {
+                    type: name,
+                    errors: [message],
+                  }
+        %>
+      <% end %>
+    <% end %>
+    <!-- MAIN CONTENT -->
+    <main">
+      <%= yield %>
+      <!-- MOBILE NAVIGATION -->
+      <%= render partial: 'application/layouts/navbar_mobile'%>
+    </main>
+
+    <%= render partial: 'application/components/login_request_mobile'%>
+  </body>
+</html>

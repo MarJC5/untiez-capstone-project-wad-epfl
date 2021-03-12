@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <!-- MOBILE VIEW -->
+    <div id="user-mobile-view">
+      <%= render partial: 'application/user/user_show_card',
+                 locals: {
+                   user_url: follow_path(@user),
+                   user_avatar: @user.avatar,
+                   user_avatar_upload: @user.avatar_upload,
+                   user_firstname: @user.firstname,
+                   user_lastname: @user.lastname,
+                   user_verified: @user.confirmed,
+                   user_followees_num: @user.followers.count,
+                   user_followers_num: @user.followees.count,
+                   user: @user.id,
+                   user_pseudo: @user.pseudo,
+                   user_location: @user.location,
+                   user_bio: @user.bio,
+                 }
+      %>
+      <hr />
+    </div>
+    <!-- MOBILE VIEW END -->
+    <!-- USER CONTENT-->
+    <%= render partial: 'application/user/user_account_page_content' %>
+
+    <!-- OLD POSTS HISTORY LINK -->
+    <a href="<%= history_path(@user) %>" class="mt-10 flex items-center user-history-link"><%= t('user.account.text.history') %> <span class="ml-2"><%= svg 'arrow-right' %></span></a>
+  </div>
+  <div class="main-content__side--right">
+    <!-- SIDEBAR INFORMATION -->
+    <%= render partial: 'application/user/user_show_card',
+               locals: {
+                 user_url: follow_path(@user),
+                 user_avatar: @user.avatar,
+                 user_avatar_upload: @user.avatar_upload,
+                 user_firstname: @user.firstname,
+                 user_lastname: @user.lastname,
+                 user_verified: @user.confirmed,
+                 user_followees_num: @user.followers.count,
+                 user_followers_num: @user.followees.count,
+                 user: @user.id,
+                 user_pseudo: @user.pseudo,
+                 user_location: @user.location,
+                 user_bio: @user.bio,
+               }
+    %>
+  </div>
+</div>

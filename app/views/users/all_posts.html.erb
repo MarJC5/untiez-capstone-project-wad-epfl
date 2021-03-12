@@ -1,0 +1,42 @@
+<div class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <h2 class="text-center mb-8"><%= t('user.account.text.history') %></h2>
+    <p class="flex justify-center">by <span class="font-bold ml-1 gradient-text">@<%= @user.pseudo %></span></p>
+    <%= link_to user_path(params[:id]), class: 'flex justify-center items-center' do %>
+      <span class="mr-2"><%= svg 'arrow-left-circle' %></span> <%= t('components.back_link') %>
+    <% end %>
+    <hr class="my-10"/>
+    <!-- POSTS -->
+    <%= render partial: 'application/posts/posts'%>
+
+    <!-- PAGINATION NAV -->
+    <div id="pagination">
+      <%= paginate @posts %>
+    </div>
+
+  </div>
+  <div class="main-content__side--right">
+    <!-- SIDEBAR INFORMATION -->
+    <%= render partial: 'application/user/user_show_card',
+               locals: {
+                 user_url: follow_path(@user),
+                 user_avatar: @user.avatar,
+                 user_avatar_upload: @user.avatar_upload,
+                 user_firstname: @user.firstname,
+                 user_lastname: @user.lastname,
+                 user_verified: @user.confirmed,
+                 user_followees_num: @user.followers.count,
+                 user_followers_num: @user.followees.count,
+                 user: @user.id,
+                 user_pseudo: @user.pseudo,
+                 user_location: @user.location,
+                 user_bio: @user.bio,
+               }
+    %>
+  </div>
+</div>

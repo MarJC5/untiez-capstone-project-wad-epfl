@@ -1,0 +1,92 @@
+<!-- MOBILE SCREEN -->
+<header class="general-header">
+  <div class="general-header__top">
+    <div class="general-header__top__logo">
+      <h1 class="logo--black">
+        <a href="<%= discover_path %>">
+          <span>u</span>ntiez
+        </a>
+      </h1>
+    </div>
+    <div class="general-header__top__search">
+      <button class="header-search-button" type="button" name="button">
+        <%= svg 'align-right' %>
+      </button>
+    </div>
+  </div>
+  <div class="general-header__bottom">
+    <div class="general-header__bottom__search hidden opacity-0 ">
+      <%= form_tag search_path, method: 'GET' do %>
+        <%= text_field_tag 'q', nil, class: 'input-btn', placeholder: t('layout.nav.search'), id: 'general-search' %>
+        <%= button_tag t('layout.nav.search'), class: 'btn-input', method: 'submit' do %>
+          <%= svg 'search' %>
+        <% end %>
+      <% end %>
+      <!-- MOBILE NAV LINKS -->
+      <% if logged_in? %> <!-- current_user.present? -->
+      <div class="header-login-user">
+        <ul>
+          <li>
+            <%= link_to session_path(1), method: :delete do %>
+              <%= svg 'logout' %> <p><%= t('layout.nav.logout')%></p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to legals_path do %>
+              <%= svg 'info' %> <p><%= t('layout.nav.terms') %></p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_user_path(current_user) do %>
+              <%= svg 'settings' %> <p><%= t('layout.nav.settings') %></p>
+            <% end %>
+          </li>
+        </ul>
+        <%= render partial: 'application/components/locale_switcher'%>
+        <%= render partial: 'application/components/copyright'%>
+      </div>
+      <% else %>
+        <div class="header-login-user">
+          <ul>
+            <li>
+              <%= svg 'log-in' %>  <%= link_to t('layout.nav.signin'), login_path %>
+            </li>
+            <li>
+              <a href="<%= legals_path %>">
+                <%= svg 'info' %> <p><%= t('layout.nav.terms') %></p>
+              </a>
+            </li>
+            <li>
+              <%= svg 'user' %> <%= link_to t('layout.nav.signup'), signup_path %>
+            </li>
+          </ul>
+          <%= render partial: 'application/components/locale_switcher'%>
+          <%= render partial: 'application/components/copyright'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+<!-- LARGE SCREEN -->
+<header class="general-header--large-screen">
+  <div class="general-header--large-screen__content">
+    <div class="general-header--large-screen__logo">
+      <h1 class="logo">
+        <a href="/">
+          <span>u</span>ntiez
+        </a>
+      </h1>
+    </div>
+    <div class="general-header--large-screen__search">
+      <%= form_tag search_path, method: 'GET' do %>
+        <%= text_field_tag 'q', nil, class: 'input-btn', placeholder: t('layout.nav.search'), required: true %>
+        <%= button_tag t('layout.nav.search'), class: 'btn-input', method: 'submit' do %>
+          <%= svg 'search' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="general-header--large-screen__login">
+      <%= render partial: 'application/user/user_header'%>
+    </div>
+  </div>
+</header>

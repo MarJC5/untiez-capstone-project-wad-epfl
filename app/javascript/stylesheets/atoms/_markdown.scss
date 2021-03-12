@@ -1,0 +1,190 @@
+#markdown {
+  margin: 2rem auto 4rem;
+  text-align: justify;
+
+  ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  @media print {
+    *,
+    *:after,
+    *:before {
+      background: transparent !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
+
+    blockquote,
+    pre {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    img,
+    tr {
+      page-break-inside: avoid;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    h2,
+    h3,
+    p {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  pre {
+    padding: 0.5rem;
+    line-height: 1.25;
+    overflow-x: scroll;
+  }
+
+  a,
+  a:visited {
+    color: $ocean;
+  }
+
+  a:active,
+  a:focus,
+  a:hover {
+    color: rgba($ocean, 0.6);
+  }
+
+  .modest-no-decoration {
+    text-decoration: none;
+  }
+
+  html {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 32rem) and (max-width: 48rem) {
+    html {
+      font-size: 15px;
+    }
+  }
+  @media screen and (min-width: 48rem) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    line-height: 1.85;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    margin: 0 auto 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 1.414rem 0 0.5rem;
+    font-weight: inherit;
+    line-height: 1.42;
+  }
+  /* https://github.com/mrmrs/fluidity */
+  canvas,
+  iframe,
+  img,
+  select,
+  svg,
+  textarea,
+  video {
+    max-width: 100%;
+  }
+
+  html {
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  body {
+    color: $black;
+    font-weight: 300;
+    margin: 0 auto;
+    max-width: 48rem;
+    line-height: 1.45;
+    padding: 0.25rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    border-bottom: 2px solid $black;
+    margin-bottom: 1.15rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  blockquote {
+    border-left: 2px solid $stone;
+    padding: 1rem;
+    margin: 1rem auto;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  code,
+  pre {
+    font-family: 'Nunito', sans-serif;
+    font-weight: lighter;
+    padding: 1rem;
+    background-color: $stone;
+    border-radius: 0.5rem;
+  }
+}
+@media (min-width: $medium) {
+  #markdown {
+    margin: 0 auto 4rem;
+  }
+}

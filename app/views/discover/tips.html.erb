@@ -1,0 +1,68 @@
+<div class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+        <!-- Has the post an image ? -->
+        <% if post.image.present? %>
+          <%= render partial: 'application/posts/post_card_full',
+                     locals: {
+                       body: post.body,
+                       comment_num: post.comments.count,
+                       like_num: post.get_likes.size,
+                       user_path: user_path(post.user),
+                       avatar: post.user.avatar,
+                       avatar_upload: post.user.avatar_upload,
+                       firstname: post.user.firstname,
+                       lastname: post.user.lastname,
+                       image: post.image,
+                       pseudo: post.user.pseudo,
+                       verified: false,
+                       text: I18n.l(post.created_at),
+                       post_url: post_path(post),
+                       post: post
+                     }
+          %>
+        <% else %>
+          <%= render partial: 'application/posts/post_card',
+                     locals: {
+                       body: post.body,
+                       comment_num: post.comments.count,
+                       like_num: post.get_likes.size,
+                       user_path: user_path(post.user),
+                       avatar: post.user.avatar,
+                       avatar_upload: post.user.avatar_upload,
+                       firstname: post.user.firstname,
+                       lastname: post.user.lastname,
+                       pseudo: post.user.pseudo,
+                       verified: false,
+                       text: I18n.l(post.created_at),
+                       post_url: post_path(post),
+                       post: post
+                     }
+          %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <!-- NO DATA FOUND VIEW -->
+      <%= render(partial: 'application/alerts/no_data_message',
+                 locals:{missing: 'tips'}) %>
+    <% end %>
+    <!-- PAGINATION NAV -->
+    <div id="pagination">
+      <%= paginate @posts %>
+    </div>
+  </div>
+  <% if logged_in? %>
+    <div class="main-content__side--right">
+        <!-- SIDEBAR NAVIGATION -->
+        <%= render partial: 'application/components/quickpost'%>
+        <hr/>
+        <%= render partial: 'application/components/friends_suggestion'%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,58 @@
+<div id="search-page" class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+
+    <!-- MAIN TITLE -->
+    <%= render(partial: 'application/components/main_page_title',
+              locals: {title: 'Search',
+                        title_type: '--center',
+                        subtitle: "#{t('search.text')} : <span class=\"font-bold underline\">' #{@search_term} '<span>".html_safe}) %>
+
+    <!-- SEARCH DATA -->
+    <div class="search-result">
+      <% if(@search_term.present?)%>
+
+        <!-- USERS -->
+        <% if(@users.any?)%>
+          <div class="search-result-term search-result-user">
+            <h4><%= t('search.members') %>:</h4>
+            <% @users.each do |user| %>
+              <%= render partial: 'application/user/user_card_text',
+                         locals: {
+                            url: user_path(user),
+                            avatar: user.avatar,
+                            avatar_upload: user.avatar_upload,
+                            pseudo: user.pseudo,
+                            verified: user.confirmed,
+                            firstname: '',
+                            lastname: '',
+                            text: 'See profile',
+                            user: user
+                          }
+               %>
+             <% end %>
+          </div>
+        <% end %>
+
+        <!-- POSTS -->
+        <% if(@posts.any?)%>
+          <% @posts.each do |post| %>
+            <div class="search-result-term search-result-<%= post.category.name %>">
+              <a href="<%= post_path(post) %>"><span><%= post.title %></span> <br/>- by @<%= post.user.pseudo %></a>
+            </div>
+          <% end %>
+        <% end %>
+
+
+
+      <% else %>
+        <!-- NO DATA FOUND VIEW -->
+        <%= render(partial: 'application/alerts/no_data_message',
+                   locals:{missing: 'information'}) %>
+      <% end %>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+// FRIENDS SUGGESTION COMPONENT
+
+.friends-suggestion {
+  width: 100%;
+
+  h4 {
+    margin-bottom: 1rem;
+    text-align: center;
+    @extend .gradient-text;
+  }
+
+  .friends-suggestion__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+
+    a:nth-child(4),
+    a:nth-child(5) {
+      display: none;
+    }
+
+    .user-card--text {
+      margin: 1.5rem auto 0;
+      width: 200px;
+
+      .avatar {
+        width: 45px;
+        height: 45px;
+      }
+
+      .user-info {
+        align-items: start;
+      }
+    }
+  }
+}
+// EXTRA LARGE SCREEN
+@media (min-width: 1600px) {
+  .friends-suggestion {
+    .friends-suggestion__list {
+      a:nth-child(4),
+      a:nth-child(5) {
+        display: flex;
+      }
+    }
+  }
+}

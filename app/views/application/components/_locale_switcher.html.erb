@@ -1,0 +1,6 @@
+<hr class="mt-6"/>
+<div class="flex justify-center my-6">
+  <% I18n.available_locales.each do |locale| %>
+    <%= link_to locale, url_for(locale: locale), class: 'locale-link mx-6 uppercase' %>
+  <% end %>
+</div>

@@ -1,0 +1,52 @@
+<div id="post-<%= post.id %>" class="post-card--full relative">
+  <!-- POST USER CARD -->
+  <a class="post-card-path" href="<%= post_url %>">
+    <%= render partial: 'application/user/user_card_text',
+               locals: {
+                 url: user_path,
+                 avatar: avatar,
+                 pseudo: pseudo,
+                 avatar_upload: avatar_upload,
+                 firstname: firstname,
+                 lastname: lastname,
+                 verified: verified,
+                 text: text
+                }
+    %>
+    <!-- POST IMAGE -->
+    <div class="post-card__images relative">
+      <% if post.image.present? %>
+        <%= image_tag image.card.url, width: '100%', :class => "card-image--rounded-top"%>
+      <% end %>
+    </div>
+  </a>
+  <!-- POST CARD BODY -->
+  <a href="<%= post_url %>">
+    <div class="post-card__description">
+      <p><%= markdown(body.truncate(300, omission: "...<br/><span class='gradient-text font-bold'>#{t('layout.text.read_more')}<span>").html_safe)%></p>
+      <hr>
+    </div>
+  </a>
+  <!-- COMMENT BUTTON -->
+  <div class="post-card-buttons">
+    <div class="post-buttons--comments">
+      <a href="<%= post_url %>/#comments"><%= svg 'message' %><%= comment_num %></a>
+    </div>
+    <!-- LINKE BUTTON -->
+    <% if logged_in? %>
+      <% if current_user.liked?(post) %>
+        <div class="post-buttons--unliked">
+          <%= link_to like_post_path(post , 'unliked'), class: 'unlike', id: "post-button-#{post.id}" , method: :put, remote: true do %>
+            <%= svg 'heart' %><span id="post-count-<%= post.id %>"><%= post.get_likes.size %></span>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="post-buttons--liked">
+          <%= link_to like_post_path(post, 'liked'), class: 'like', id: "post-button-#{post.id}", method: :put, remote: true do %>
+            <%= svg 'heart' %><span id="post-count-<%= post.id %>"><%= post.get_likes.size %></span>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

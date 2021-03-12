@@ -1,0 +1,108 @@
+<% @posts.each do |post| %>
+  <!-- POST -->
+  <% case post.category.name %>
+    <% when 'post' %>
+      <%= render partial: 'application/posts/post_card',
+                 locals: {
+                   body: post.body,
+                   comment_num: post.comments.count,
+                   like_num: post.get_likes.size,
+                   user_path: user_path(post.user),
+                   avatar: post.user.avatar,
+                   avatar_upload: post.user.avatar_upload,
+                   firstname: post.user.firstname,
+                   lastname: post.user.lastname,
+                   pseudo: post.user.pseudo,
+                   verified: false,
+                   text: I18n.l(post.created_at),
+                   post_url: post_path(post),
+                   post: post
+                 }
+      %>
+    <!-- TIPS -->
+    <% when 'tips' %>
+        <!-- Has the post an image ? -->
+        <% if post.image.present? %>
+          <%= render partial: 'application/posts/post_card_full',
+                     locals: {
+                       body: post.body,
+                       comment_num: post.comments.count,
+                       like_num: post.get_likes.size,
+                       user_path: user_path(post.user),
+                       avatar: post.user.avatar,
+                       avatar_upload: post.user.avatar_upload,
+                       firstname: post.user.firstname,
+                       lastname: post.user.lastname,
+                       image: post.image,
+                       pseudo: post.user.pseudo,
+                       verified: false,
+                       text: I18n.l(post.created_at),
+                       post_url: post_path(post),
+                       post: post
+                     }
+          %>
+        <% else %>
+          <%= render partial: 'application/posts/post_card',
+                     locals: {
+                       body: post.body,
+                       comment_num: post.comments.count,
+                       like_num: post.get_likes.size,
+                       user_path: user_path(post.user),
+                       avatar: post.user.avatar,
+                       avatar_upload: post.user.avatar_upload,
+                       firstname: post.user.firstname,
+                       lastname: post.user.lastname,
+                       pseudo: post.user.pseudo,
+                       verified: false,
+                       text: I18n.l(post.created_at),
+                       post_url: post_path(post),
+                       post: post
+                     }
+          %>
+        <% end %>
+      <!-- TRIP-PROPOSAL -->
+    <% when 'trip-proposal' %>
+        <%= render partial: 'application/posts/travel_proposal_card',
+                   locals: {
+                     body: post.title,
+                     comment_num: post.comments.count,
+                     like_num: post.get_likes.size,
+                     user_path: user_path(post.user),
+                     avatar: post.user.avatar,
+                     avatar_upload: post.user.avatar_upload,
+                     firstname: post.user.firstname,
+                     lastname: post.user.lastname,
+                     pseudo: post.user.pseudo,
+                     verified: false,
+                     text: I18n.l(post.created_at),
+                     post_url: post_path(post),
+                     location: post.location,
+                     travel_date: post.departure,
+                     joiners: post.users.order(created_at: :desc).limit(3),
+                     joiners_url: joiners_path(post)
+                   }
+        %>
+        <!-- PHOTOSHOOT -->
+    <% when 'photoshoot' %>
+      <%= render partial: 'application/posts/image_card',
+                 locals: {
+                   body: post.body,
+                   comment_num: post.comments.count,
+                   like_num: post.get_likes.size,
+                   fav_num: 0,
+                   user_path: user_path(post.user),
+                   avatar: post.user.avatar,
+                   avatar_upload: post.user.avatar_upload,
+                   firstname: post.user.firstname,
+                   lastname: post.user.lastname,
+                   pseudo: post.user.pseudo,
+                   verified: false,
+                   image: post.image,
+                   text: I18n.l(post.created_at),
+                   post_url: post_path(post),
+                   post: post
+                 }
+      %>
+  <% end %>
+
+<% end %>

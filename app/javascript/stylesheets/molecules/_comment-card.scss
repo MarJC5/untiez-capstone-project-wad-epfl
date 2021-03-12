@@ -1,0 +1,25 @@
+// COMMENT CARDS
+
+.comment-card {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.06);
+
+  .comment-content {
+    border-left-width: 4px;
+    padding-left: 1.5rem;
+
+    .avatar {
+      height: 45px;
+      width: 45px;
+    }
+
+    .comment-text {
+      margin-top: 1rem;
+      margin-bottom: 0;
+      font-weight: lighter;
+      font-size: 0.875rem;
+    }
+  }
+}

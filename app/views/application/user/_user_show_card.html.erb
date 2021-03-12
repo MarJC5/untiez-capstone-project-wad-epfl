@@ -1,0 +1,51 @@
+<div class="user-show-pannel">
+  <%= render partial: 'application/user/user_card_full',
+             locals: {
+               url: user_url,
+               avatar: user_avatar,
+               avatar_upload: user_avatar_upload,
+               firstname: user_firstname,
+               lastname: user_lastname,
+               verified: user_verified,
+               followees_num: user_followees_num,
+               followers_num: user_followers_num
+             }
+  %>
+  <div class="user-show-info">
+    <h6>@<%= user_pseudo %></h6>
+    <p><%= user_bio %></p>
+  </div>
+  <hr class="h-1 w-full"/>
+  <div class="user-show-location flex flex-col">
+    <div class="flex items-center">
+      <%= svg 'pin' %> <small class="font-bold ml-1"><%= t('user.account.text.living_at') %></small>
+    </div>
+    <p><%= user_location %></p>
+  </div>
+  <!-- CURRENT USER EDIT -->
+  <% if current_user == @user %>
+    <a class="btn--svg-text--black my-4" href="<%= edit_user_path(@user) %>"><%= svg 'edit' %> <%= t('user.account.text.edit_user') %></a>
+  <% end %>
+  <!-- FOLLOW BTN -->
+  <% if user != current_user.id %>
+    <div class="user-follow-button flex">
+        <% if current_user.followees.include?(@user) %>
+            <%= link_to unfollow_user_path, method: "POST", class: "btn--svg-text--black unfollow" do %>
+              <%= svg 'unfollow' %> <%= t('user.button.unfollow') %>
+            <% end %>
+            <!-- ADMIN EDIT USER BTN -->
+            <% if is_admin?(current_user) %>
+              <a class="btn--svg-text--black ml-4" href="<%= edit_user_path(@user) %>"><%= svg 'edit' %> <%= t('user.button.edit') %></a>
+            <% end %>
+        <% else %>
+            <%= link_to follow_user_path, method: "POST", class: "btn--svg-text follow" do  %>
+            <%= svg 'follow' %> <%= t('user.button.follow') %>
+          <% end %>
+          <!-- ADMIN EDIT USER BTN -->
+          <% if is_admin?(current_user) %>
+            <a class="btn--svg-text--black ml-4" href="<%= edit_user_path(@user) %>"><%= svg 'edit' %> <%= t('user.button.edit') %></a>
+          <% end %>
+        <% end%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <h2 class="text-center"><%= t('user.account.edit') %></h2>
+
+    <!-- EDIT FORM -->
+    <%= render partial: 'form', locals: {user: @user } %>
+
+  </div>
+</div>
+
+<!-- write file name after upload -->
+<script type="text/javascript">
+  document.querySelector("#file-upload").onchange = function(){
+    document.querySelector("#file-name").textContent = this.files[0].name;
+  }
+</script>

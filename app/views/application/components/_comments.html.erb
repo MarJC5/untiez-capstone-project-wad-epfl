@@ -1,0 +1,16 @@
+<% @comments.each do |comment| %>
+  <%= render partial: 'application/components/comment_card',
+            locals: {
+              url: user_path(comment.user.id),
+              avatar: comment.user.avatar,
+              avatar_upload: comment.user.avatar_upload,
+              pseudo: comment.user.pseudo,
+              firstname: '',
+              lastname: '',
+              verified: comment.user.confirmed,
+              text: time_ago_in_words(comment.created_at),
+              user: comment.user,
+              comment: comment.body
+            }
+  %>
+<% end %>

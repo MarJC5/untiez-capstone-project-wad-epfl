@@ -1,0 +1,26 @@
+.upload-avatar-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn {
+  border: 2px solid $black;
+  border-radius: 9999px;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.upload-avatar-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  padding: 1rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}

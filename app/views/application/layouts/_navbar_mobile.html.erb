@@ -1,0 +1,37 @@
+<% if logged_in? %> <!-- current_user.present? -->
+<div class="main-navbar-mobile">
+  <nav class="main-navbar__nav">
+    <ul>
+      <li>
+        <div class="main-navbar__current-user">
+            <%= render partial: 'application/user/user_card',
+                       locals: {
+                         url: user_path(current_user),
+                         avatar: current_user.avatar,
+                         avatar_upload: current_user.avatar_upload,
+                         firstname: current_user.firstname,
+                         verified: false,
+                         lastname: current_user.lastname
+                       }
+            %>
+        </div>
+      </li>
+      <li>
+        <a href="<%= root_path %>">
+          <%= svg 'home' %>
+        </a>
+      </li>
+      <li>
+        <a href="<%= discover_path %>">
+          <%= svg 'globe' %>
+        </a>
+      </li>
+      <li>
+        <a href="<%= new_post_path %>">
+          <%= svg 'add' %>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<% end %>

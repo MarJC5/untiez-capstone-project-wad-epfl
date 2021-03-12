@@ -1,0 +1,59 @@
+<div class="form-card">
+  <%= form_for(post) do |f| %>
+  <!-- FORM ERRORS -->
+    <%= render partial: 'application/alerts/error_invalid', locals:{ item: post}%>
+  <!-- FORM -->
+    <div id="post-creation-form">
+      <div class="my-4">
+        <%= f.label :category_id %>
+        <div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { class: 'select-css' }) %>
+        </div>
+      </div>
+      <div class="my-4 post-form-image">
+        <%= f.label :image %>
+        <div>
+          <%= f.file_field :image, class: 'input post-form-image-field' %>
+        </div>
+      </div>
+      <div class="my-4">
+        <%= f.label :title %>
+        <div>
+          <%= f.text_field :title, class: 'input', placeholder: 'Hello untiez!' %>
+        </div>
+      </div>
+      <div class="my-4 post-form-location">
+        <%= f.label :location %>
+        <div>
+          <%= f.search_field :location, class: 'input', placeholder: 'Lausanne', id: 'address-input' %>
+        </div>
+      </div>
+
+      <div class="my-4 photoshoot-form-departure">
+        <%= f.label 'Departure date / Trip duration' %>
+        <div>
+          <%= f.text_field :departure, class: 'input' %>
+        </div>
+      </div>
+
+      <div class="my-4">
+        <%= f.label :body %>
+        <div>
+          <%= f.text_area :body, class: 'input', placeholder: t('helpers.placeholder.post.body') %>
+        </div>
+      </div>
+      <div class="my-4">
+        <% if is_admin?(current_user) %>
+          <%= f.label :user %>
+          <div>
+              <%= f.collection_select(:user_id, User.all, :id, :pseudo, {}, { class: 'select-css' }) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+     <div class="my-4 flex justify-between lg:justify-center items-center">
+       <%= f.submit class: 'btn--primary' %>
+       <a href="<%= discover_path %>" class="btn--black ml-4 text-center"><%= t('layout.button.cancel') %></a>
+     </div>
+  <% end %>
+</div>

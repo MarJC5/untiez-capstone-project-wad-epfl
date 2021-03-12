@@ -1,0 +1,104 @@
+<div class="user-form">
+  <%= form_for(user) do |f| %>
+    <div class="mb-6 flex flex-col items-center">
+      <!-- FORM ERRORS -->
+        <%= render partial: 'application/alerts/error_invalid', locals:{ item: user}%>
+      <!-- FORM -->
+      <%= f.label :avatar_upload %>
+      <div class="upload-avatar-wrapper">
+        <button class="upload-btn">
+          <% if user.avatar_upload.present? %>
+            <img src="<%= user.avatar_upload %>" alt="<%= :firstname %> <%= :lastname %> - profile picture" class="avatar--small">
+            <% else %>
+            <%= image_tag user.avatar, :class => "avatar--small" %>
+          <% end %>
+        </button>
+        <%= f.file_field :avatar_upload, id: 'file-upload' %>
+      </div>
+      <label id="file-name"></label>
+    </div>
+    <div class="flex">
+      <div class="w-1/2">
+        <div class="mr-4 mb-6">
+          <%= f.label :firstname %>
+          <div>
+            <%= f.text_field :firstname, class: 'input', placeholder: 'John' %>
+          </div>
+        </div>
+        <div class="mr-4 mb-6">
+          <%= f.label :lastname %>
+          <div>
+            <%= f.text_field :lastname, class: 'input', placeholder: 'Doe' %>
+          </div>
+        </div>
+      </div>
+      <div class="w-1/2">
+        <div class="mb-6">
+          <%= f.label :email %>
+          <div>
+            <%= f.text_field :email, class: 'input', placeholder: 'user@untiez.com' %>
+          </div>
+        </div>
+        <div>
+          <%= f.label :pseudo %>
+          <div>
+            <%= f.text_field :pseudo, class: 'input', placeholder: 'e.g. untiez' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="mb-6">
+        <%= f.label :location %>
+        <div>
+          <%= f.text_field :location, class: 'input', placeholder: 'e.g. Switzerland' , id: 'address-input' %>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <%= f.label :bio %>
+        <div>
+          <%= f.text_area :bio, class: 'input h-auto' %>
+        </div>
+      </div>
+
+      <% if is_admin?(current_user) %>
+        <!-- user role -->
+        <%= f.label :role, class: 'col-md-2 col-form-label' %>
+        <div class="mb-6">
+            <%= f.select(:role, %w(registered admin), {}, class: 'select-css' ) %>
+        </div>
+      <% end %>
+
+    <% if(current_user == user) %>
+    <p class="text-center text-red-500"><%= t('alert.need_password_for_update') %></p>
+    <!-- current_user password -->
+      <div id="password-fields">
+      <div class="flex flex-col md:flex-row">
+        <div class="mb-6 w-full md:mr-4 md:w-1/2">
+          <%= f.label :password %>
+          <div>
+            <%= f.password_field :password, class: 'input user_password' %>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <%= f.label :password_validation, class: 'whitespace-no-wrap' %>
+          <div>
+            <%= f.password_field :password_validation, class: 'input user_password'%>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+
+     <div class="mt-6">
+       <div class="flex justify-center">
+
+         <%= f.submit t('helpers.update'), class: "btn--primary #{'form-btn-validation btn--disabled hidden' if current_user.role == 'registered'}" %>
+
+         <%= link_to t('helpers.delete_account'), user_path(user), class: 'btn--danger mx-4 ', role: 'button' , method: :delete, data: {confirm: "Are you sure?"}  %>
+         <a href="<%= user_path(current_user) %>" class="btn--black text-center flex justify-center items-center"><%=  t('helpers.cancel') %></a>
+       </div>
+     </div>
+  <% end %>
+</div>

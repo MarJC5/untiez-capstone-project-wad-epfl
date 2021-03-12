@@ -1,0 +1,51 @@
+<h2 class="mb-6"><%= t('user.account.text.last_posts') %></h2>
+<div class="user-last-posts mb-6">
+  <% if @last_posts.present? %>
+    <% @last_posts.each do |post| %>
+      <% if post.image.present?  %>
+        <div class="user-last-posts__card--<%= post.category.name %>">
+          <h5><%= post.title %></h5>
+          <a href="<%= post_path(post.id) %>"><%= t('user.account.text.see_image') %></a>
+        </div>
+      <% else %>
+        <div class="user-last-posts__card--<%= post.category.name %>">
+          <h5><%= post.title %></h5>
+          <% if post.category.name == 'trip-proposal' %>
+            <% if post.users.present? %>
+              <%= render partial: 'application/user/users_group',
+                         locals: {
+                           url: post_path(post),
+                            users: post.users.order(created_at: :desc).limit(3)
+                          }
+              %>
+            <% end %>
+          <% end %>
+          <a href="<%= post_path(post.id) %>" ><%= t('user.account.text.more') %></a>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p><%= t('user.account.text.no_post') %> <span class="gradient-text font-bold">@<%= @user.pseudo  %></span>.</p>
+  <% end %>
+</div>
+<h2 class="mb-6"><%= t('user.account.text.last_trips') %></h2>
+<div class="user-last-posts">
+  <% if @joined_posts.present? %>
+   <% @joined_posts.each do |post| %>
+    <div class="user-last-posts__card--<%= post.category.name %>">
+      <h5><%= post.title %></h5>
+        <% if post.users.present? %>
+          <%= render partial: 'application/user/users_group',
+                     locals: {
+                       url: post_path(post),
+                        users: post.users.order(created_at: :desc).limit(3)
+                      }
+          %>
+        <% end %>
+      <a href="<%= post_path(post.id) %>" ><%= t('user.account.text.more') %></a>
+    </div>
+    <% end %>
+  <% else %>
+    <p><span class="gradient-text font-bold">@<%= @user.pseudo  %></span> <%= t('user.account.text.no_join') %></p>
+  <% end %>
+</div>

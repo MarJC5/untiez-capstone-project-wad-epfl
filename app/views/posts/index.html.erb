@@ -1,0 +1,27 @@
+<div class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+      <div data-target="infinite-scroll.entries">
+        <%= render partial: 'application/posts/posts'%>
+      </div>
+      <!-- PAGINATION NAV WITH INFINIT SCROLL DETECTOR -->
+      <div data-target="infinite-scroll.pagination" id="pagination">
+        <%= paginate @posts %>
+      </div>
+    </div>
+
+  </div>
+  <% if logged_in? %>
+    <div class="main-content__side--right">
+        <!-- SIDEBAR NAVIGATION -->
+        <%= render partial: 'application/components/quickpost'%>
+        <hr/>
+        <%= render partial: 'application/components/friends_suggestion'%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,83 @@
+<div class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+  <!-- PAGE CONTENT-->
+    <h2 class="text-center"><%= t('post.title.new') %></h2>
+
+    <!-- POST CREATION FORM -->
+    <%= render partial: 'form', locals: {post: @post } %>
+
+  </div>
+  <div class="main-content__side--right">
+    <!-- SIDEBAR INFORMATION -->
+    <div class="post-form-tuto">
+      <h4>How to create a post</h4>
+      <ol>
+        <li><p>Choose a post <span class="gradient-text font-bold">category</span> between - Post, Tips, Trip proposal or Photoshoot</p></li>
+        <li><p>Add an <span class="gradient-text font-bold">image</span> for a Photoshoot post</p></li>
+        <li><p>Enter a <span class="gradient-text font-bold">title</span></p></li>
+        <li><p>Select a <span class="gradient-text font-bold">location</span> if your post is a Trip proposal or a Photoshoot</p></li>
+        <li><p>Fill the <span class="gradient-text font-bold">body</span> with your text.</p></li>
+      </ol>
+      <p>The body of every post is supported by <span class="gradient-text font-bold">Markdown</span> syntaxe.</p>
+      <hr>
+      <!-- MARKDOWN INSTRUCTION -->
+      <div class="accordion">
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-1" class="hidden" />
+          <label for="panel-1" class="relative block p-2">Heading</label>
+          <div class="accordion__content">
+            <div class="accordion__body" id="panel1">
+              <ul>
+                <li># Title 1</li>
+                <li>### Title 2</li>
+                <li>... etc</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-2" class="hidden" />
+          <label for="panel-2" class="relative block p-2">Text</label>
+          <div class="accordion__content">
+            <div class="accordion__body" id="panel2">
+              <ul>
+                <li>**bold text**</li>
+                <li>*italicized text*</li>
+                <li>[title](https://www.example.com)</li>
+                <li>![title](image url)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-3" class="hidden" />
+          <label for="panel-3" class="relative block p-2">List</label>
+          <div class="accordion__content">
+            <div class="accordion__body" id="panel3">
+              <ul>
+                <li>1. item</li>
+                <li>- item</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-4" class="hidden" />
+          <label for="panel-4" class="relative block p-2">Others</label>
+          <div class="accordion__content">
+            <div class="accordion__body" id="panel4">
+              <ul>
+                <li>> blockquote</li>
+                <li>--- Horizontal Rule</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+// MAIN LOGO
+
+.logo {
+  font-weight: bold;
+  white-space: nowrap;
+
+  a {
+    display: flex;
+  }
+
+  span {
+    @extend .gradient-text;
+    text-transform: uppercase;
+  }
+
+  &--white {
+    @extend .logo;
+    color: #FFF;
+  }
+
+  &--black {
+    @extend .logo;
+
+    span {
+      background: -webkit-linear-gradient(left, $black, rgba($black, 0.7));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

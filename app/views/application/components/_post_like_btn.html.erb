@@ -1,0 +1,20 @@
+<% if logged_in? %>
+  <div class="post-show-buttons-list">
+    <div class="post-buttons--comments">
+      <a href="#comments"><%= svg 'message' %><span class="comment-<%= @post.id %>-count"><%= @post.comments.count %></span></a>
+    </div>
+    <% if current_user.liked?(@post) %>
+      <div class="post-buttons--unliked">
+        <%= link_to like_post_path(@post , 'unliked'), class: 'unlike', id: "post-button-#{@post.id}" , method: :put, remote: true do %>
+          <%= svg 'heart' %><span id="post-count-<%= @post.id %>"><%= @post.get_likes.size %></span>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="post-buttons--liked">
+        <%= link_to like_post_path(@post, 'liked'), class: 'like', id: "post-button-#{@post.id}", method: :put, remote: true do %>
+          <%= svg 'heart' %><span id="post-count-<%= @post.id %>"><%= @post.get_likes.size %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

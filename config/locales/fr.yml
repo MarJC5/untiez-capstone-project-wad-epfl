@@ -1,0 +1,224 @@
+fr:
+  components:
+    back_link: 'Retour'
+    joiners_info:
+      leave: 'Quitter'
+      join: 'Rejoindre'
+      count: 'Participants'
+    comment_form:
+      comment: 'Commentaires'
+      placeholder: 'Partagez votre avis ici...'
+      send: 'Envoyer'
+    copyright: 'tous droits réservés'
+    sidenav:
+      title:
+        friends_suggestion: "Suggestion d'amis"
+        quickpost: 'Publication rapide'
+      button:
+        more: "Plus d'options"
+      quickpost:
+        title: "Titre"
+        body : "Quelque chose à partager ?"
+  layout:
+    nav:
+      welcome: 'Bienvenue'
+      logout: 'Déconnexion'
+      login: 'Connexion'
+      search: 'Rechercher'
+      signin: 'Se connecter'
+      signup: "S'inscrire"
+      terms: 'Termes'
+      settings: 'Réglages'
+      home: 'Accueil'
+      discover: 'Découvrir'
+      account: 'Compte'
+      add: 'Ajouter un post'
+    button:
+      cancel: 'Annuler'
+      delete: 'Supprimer'
+      edit: 'Éditer'
+      confirmation: 'Êtes-vous sûr ?'
+    text:
+      close: "Fermer"
+      read_more: 'Lire la suite'
+      update: 'Mettre à jour'
+      last_update: 'Dernière mise à jour'
+      no_account: "Vous n'avez pas de compte ?"
+      has_account: "Déjà un compte ?"
+  cards:
+    post:
+      more: 'Voir plus'
+      join: 'Rejoindre'
+  user:
+    alert:
+      strong_password: "doit au moins contenir une lettre minuscule, une majuscule, un chiffre et plus de 8 caractères"
+      create: "Le compte utilisateur a été créé avec succès."
+      create_error: "Oups, une erreur s'est produite, la création de votre compte n'est pas valide."
+      update: "Le compte utilisateur a été mis à jour avec succès."
+      update_error: "Oups, quelque chose s'est mal passé, la mise à jour a échoué."
+      destroy: "Le compte utilisateur a été détruit avec succès."
+      not_allowed: "Vous n'êtes pas autorisé à voir cette page."
+      please_login: "Veuillez vous connecter pour accéder à cette page."
+    button:
+      follow: 'Suivre'
+      unfollow: "Se désabonner"
+      edit: 'Éditer'
+    account:
+      edit: 'Modifier les informations personnelles'
+      text:
+        history: 'Historique des publications'
+        missing_letter: "n'est pas valide, doit contenir au moins 1 lettre."
+        edit_user: "Éditer le profil"
+        living_at: "Localisation"
+        see_profile: 'Voir le profil'
+        see_image: "Voir l'image"
+        more: 'Voir plus'
+        last_posts: 'Derniers post'
+        last_trips: 'Voyages récemment rejoints'
+        no_join: "n'a pas encore rejoint un voyage."
+        no_post: "Aucun posts n'a été créé par"
+  comment:
+    alert:
+      create: "Le commentaire a été créé avec succès."
+      create_error: "Erreur lors de la création de votre commentaire, veuillez réessayer."
+  home:
+    banner:
+      title: "Rejoignez la communauté !"
+      button: "découvrir"
+    cards:
+      photoshoot:
+        title: 'Séance photo'
+        text: 'Photos réalisées par la communauté.'
+      tips:
+        title: 'Conseils'
+        text: 'Besoin de conseils de voyage ?'
+      trips:
+        title: 'Proposition de voyage'
+        text: 'Rejoint un voyage !'
+      create:
+        title: 'Créer un post'
+        text: 'Quelque chose à partager ?'
+  legal:
+    title: "Conditions d'utilisation du réseau social"
+    create: 'Créer des termes juridiques'
+    alert:
+      create: "Votre termes légale a été créé avec succès."
+      create_error: "Oups, quelque chose s'est mal passé, la création a échoué."
+      update: "Votre termes légale a été mis à jour avec succès."
+      update_error: "Oups, quelque chose s'est mal passé, la mise à jour a échoué."
+      destroy: "Votre termes légale a été supprimé avec succès."
+  post:
+    alert:
+      create: "Votre post a été créé avec succès."
+      create_error: "Oups, quelque chose s'est mal passé, la création a échoué."
+      update: "Votre post a été mis à jour avec succès."
+      update_error: "Oups, quelque chose s'est mal passé, la mise à jour a échoué."
+      destroy: "Votre post a été supprimé avec succès."
+      leave_trip: "Vous avez à quitter le voyage."
+      please_login: "Veuillez vous connecter ou vous inscrire pour voir le contenu complet."
+    title:
+      edit: 'Modifier le post'
+      new: 'Créer un post'
+  session:
+    alert:
+      create: "Connexion réussie, bienvenue "
+      create_error: "L'adresse e-mail ou le mot de passe n'étaient pas valides. Veuillez réessayer."
+      logout: "Vous avez été déconnecté avec succès, à bientôt !"
+  search:
+    text: 'Résultat pour'
+    members: 'Membres'
+  date:
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_month_names: [~, Jan, Fév, Mar, Avr, Mai, Jun, Jul, Août, Sep, Oct, Nov, Déc]
+    month_names: [~, Janvier, Février,  Mars,  Avril,  Mai,  Juin,  Juillet,  Août,  Septembre,  Octobre,  Novembre, Décembre]
+    formats:
+      day_month: "%b %d"
+      default: "%Y-%m-%d"
+      hour: "%H:%M"
+      long: "%A %d %B %Y"
+      long_month: "%d %B %Y"
+      month_abbr: "%d %b %Y"
+  time:
+    formats:
+      default: "%a, %d %B %Y"
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "Il y a moins d'minute"
+        other: "Il y a %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "Il y a 1 hour"
+        other: "Il y a %{count} hours"
+      x_days:
+        one: 'Il y a 1 jour'
+        other: 'Il y a %{count} jours'
+  alert:
+    need_password_for_update: "Veuillez saisir votre mot de passe pour confirmer le changement"
+    no_data: "Aucun %{item} n'a été trouvé !"
+  helpers:
+    label:
+      session:
+        email: 'Email'
+        password: 'Mot de passe'
+      user:
+        avatar_upload: 'Ajouter un avatar'
+        firstname: 'Prénom'
+        lastname: 'Nom'
+        email: 'Email'
+        pseudo: 'Pseudo'
+        location: 'Ville, pays'
+        bio: 'Bio'
+        password: 'Mot de passe'
+        password_validation: 'Confirmation de mot de passe'
+        role: 'Role'
+      post:
+        category_id: 'Categorie'
+        title: 'Titre'
+        location: 'Ville, pays'
+        body: 'Description'
+    placeholder:
+      post:
+        body: "Votre texte..."
+    create: 'Créer'
+    update: 'Mettre à jour'
+    cancel: 'Annuler'
+    delete_account: 'Supprimer le compte'
+  activerecord:
+    errors:
+      models:
+        legal:
+          attributes:
+            blank: "est manquant."
+        category:
+          attributes:
+            blank: "est manquant."
+            taken: "a déjà été pris."
+        comment:
+          attributes:
+            blank: "est manquant."
+        post:
+          attributes:
+            blank: "est manquant."
+            too_long: "est trop long, maximum 100 caractères."
+        user:
+          attributes:
+            location:
+              blank: "est manquant."
+            pseudo:
+              taken: "a déjà été pris."
+              blank: "est manquant."
+            email:
+              taken: "a déjà été pris."
+              blank: "est manquant."
+            firstname:
+              blank: "est manquant."
+            lastname:
+              blank: "est manquant."
+            password:
+              blank: "est manquant."
+            bio:
+              too_long: "est trop longue, maximum 50 caractères."

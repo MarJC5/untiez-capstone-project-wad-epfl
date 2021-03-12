@@ -1,0 +1,354 @@
+<div id="legal-page" class="main-content">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- MOBILE BACK BTN -->
+    <%= render partial: 'application/components/back', locals:{redirect: styleguide_index_path}%>
+    <!-- PAGE CONTENT-->
+    <h2 class="md:mb-8">Atoms</h2>
+    <div class="styleguide-content">
+      <div class="accordion">
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-1" class="hidden" />
+          <label for="panel-1" class="relative block px-2 py-4 border-b">Typo</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel1">
+              <div class="styleguide-content__typo">
+                <div class="demo-typo">
+                  <h1>H1</h1>
+                  <small>3.052em</small>
+                </div>
+                <div class="demo-typo">
+                  <h2>H2</h2>
+                  <small>2.441em</small>
+                </div>
+                <div class="demo-typo">
+                  <h3>H3</h3>
+                  <small>1.953em</small>
+                </div>
+                <div class="demo-typo">
+                  <h4>H4</h4>
+                  <small>1.563em</small>
+                </div>
+                <div class="demo-typo">
+                  <h5>H5</h5>
+                  <small>1.25em</small>
+                </div>
+                <div class="demo-typo">
+                  <p>P / H6</p>
+                  <small>1rem</small>
+                </div>
+                <div class="demo-typo">
+                  <small>SMALL</small>
+                  <small>0.8rem</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-2" class="hidden" />
+          <label for="panel-2" class="relative block px-2 py-4 border-b">Lists</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel2">
+              <div class="styleguide-content__lists">
+                <div class="demo-list">
+                  <p>.list-unordered</p>
+                  <ul class="list-unordered">
+                    <li>item</li>
+                    <li>item</li>
+                  </ul>
+                </div>
+                <div class="demo-list">
+                  <p>.list-hidden</p>
+                  <ul class="list-hidden">
+                    <li>item</li>
+                    <li>item</li>
+                  </ul>
+                </div>
+                <div class="demo-list">
+                  <p>.list-ordered</p>
+                  <ol class="list-ordered">
+                    <li>item</li>
+                    <li>item</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-3" class="hidden" />
+          <label for="panel-3" class="relative block px-2 py-4 border-b">Colors</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel3">
+              <div class="styleguide-content__colors">
+                <div class="demo-color--mustard">
+                  <p>#EFC251</p>
+                  <p>$mustard</p>
+                </div>
+                <div class="demo-color--tomato">
+                  <p>#FB6440</p>
+                  <p>$tomato</p>
+                </div>
+                <div class="demo-color--ocean">
+                  <p>#0D619D</p>
+                  <p>$ocean</p>
+                </div>
+                <div class="demo-color--tree">
+                  <p>#24AC70</p>
+                  <p>$tree</p>
+                </div>
+                <div class="demo-color--black">
+                  <p>#16181E</p>
+                  <p>$black</p>
+                </div>
+                <div class="demo-color--stone">
+                  <p>#ECEBED</p>
+                  <p>$stone</p>
+                </div>
+                <div class="demo-color--rock">
+                  <p>#D5D7D2</p>
+                  <p>$rock</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-4" class="hidden" />
+          <label for="panel-4" class="relative block px-2 py-4 border-b">Buttons</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel4">
+              <div class="styleguide-content__buttons">
+                <button type="button" name="button" class="btn">.btn</button>
+                <button type="button" name="button" class="btn--primary">.btn--primary</button>
+                <button type="button" name="button" class="btn--danger">.btn--danger</button>
+                <button type="button" name="button" class="btn--validate">.btn--validate</button>
+                <button type="button" name="button" class="btn--black">.btn--black</button>
+                <button type="button" name="button" class="btn-input">.btn-input</button>
+                <button type="button" name="button" class="btn--svg-text"><%= svg 'info' %> .btn--svg-text</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-5" class="hidden" />
+          <label for="panel-5" class="relative block px-2 py-4 border-b">Comments</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel5">
+              <div class="styleguide-content__inputs">
+                <div class="demo-input">
+                  <input type="text" name="" value=".input" class="input">
+                </div>
+                <div class="demo-input">
+                  <input type="text" name="" value=".input--danger" class="input--danger">
+                </div>
+                <div class="demo-input">
+                  <input type="text" name="" value=".input-btn" class="input-btn">
+                </div>
+                <div class="demo-input">
+                  <select name="" class="input select-css">
+                    <option value="0" selected="selected">.input .select-css</option>
+                    <option value="1">Value</option>
+                  </select>
+                </div>
+                <div class="demo-input">
+                  <textarea name="name" rows="8" cols="80" class="input" placeholder=".input"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-6" class="hidden" />
+          <label for="panel-6" class="relative block px-2 py-4 border-b">Images</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel6">
+              <div class="styleguide-content__images">
+                <div class="demo-image">
+                  <img src="/assets/samples/sample-2.jpg" alt="demo" class="card-image">
+                </div>
+                <div class="demo-image">
+                  <img src="/assets/samples/sample-2.jpg"  alt="demo" class="card-image--rounded">
+                </div>
+                <div class="demo-image">
+                  <img src="/assets/samples/sample-2.jpg" alt="demo" class="card-image--rounded-top">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-7" class="hidden" />
+          <label for="panel-7" class="relative block px-2 py-4 border-b">Avatars</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel7">
+              <div class="styleguide-content__images">
+                <div class="demo-image">
+                  <img src="/assets/samples/logo.png" alt="demo" class="avatar">
+                </div>
+                <div class="demo-image">
+                  <img src="/assets/samples/logo.png" alt="demo" class="avatar--bordered">
+                </div>
+                <div class="demo-image">
+                  <img src="/assets/samples/logo.png" alt="demo" class="avatar--small">
+                </div>
+                <div class="demo-image">
+                  <img src="/assets/samples/logo.png" alt="demo" class="avatar--bordered-small ">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-8" class="hidden" />
+          <label for="panel-8" class="relative block px-2 py-4 border-b">Logos</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel8">
+              <div class="styleguide-content__logos">
+                <div class="demo-logo">
+                  <h1 class="logo">
+                    <a href="/">
+                      <span>u</span>ntiez
+                    </a>
+                  </h1>
+                </div>
+                <div class="demo-logo bg-black">
+                  <h1 class="logo--white">
+                    <a href="/">
+                      <span>u</span>ntiez
+                    </a>
+                  </h1>
+                </div>
+                <div class="demo-logo">
+                  <h1 class="logo--black">
+                    <a href="/">
+                      <span>u</span>ntiez
+                    </a>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <input type="checkbox" name="panel" id="panel-9" class="hidden" />
+          <label for="panel-9" class="relative block px-2 py-4 border-b">Icons</label>
+          <div class="accordion__content mt-4">
+            <div class="accordion__body" id="panel9">
+              <div class="styleguide-content__icons">
+                <div class="demo-icon">
+                  <%= svg 'add' %>
+                  <small>Add</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'align-right' %>
+                  <small>Menu</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'arrow-right' %>
+                  <small>Arro right</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'arrow-left-circle' %>
+                  <small>Arro left circle</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'close' %>
+                  <small>Close</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'delete' %>
+                  <small>Delete</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'edit' %>
+                  <small>Edit</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'error' %>
+                  <small>Error</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'success' %>
+                  <small>Success</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'info' %>
+                  <small>Info</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'settings' %>
+                  <small>Settings</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'verified' %>
+                  <small>Verified</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'follow' %>
+                  <small>Follow</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'unfollow' %>
+                  <small>Unfollow</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'user' %>
+                  <small>User</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'heart' %>
+                  <small>Heart</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'home' %>
+                  <small>Home</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'globe' %>
+                  <small>Globe</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'layers' %>
+                  <small>Layers</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'log-in' %>
+                  <small>Log in</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'logout' %>
+                  <small>Logout</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'message' %>
+                  <small>Message</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'more' %>
+                  <small>More</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'search' %>
+                  <small>Search</small>
+                </div>
+                <div class="demo-icon">
+                  <%= svg 'key' %>
+                  <small>Key</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-content__side--right">
+    <h4>Style guide</h4>
+    <%= render partial: 'application/components/styleguide_nav'%>
+  </div>
+</div>

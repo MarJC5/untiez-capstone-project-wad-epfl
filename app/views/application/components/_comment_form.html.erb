@@ -1,0 +1,9 @@
+<div class="textarea-form">
+  <h4><%= t('components.comment_form.comment') %> - <span class="gradient-text font-bold comment-<%= @post.id %>-count"><%= @post.comments.count %></span></h4>
+  <% if logged_in? %>
+    <%= form_for([@post, @post.comments.build], remote: true) do |f| %>
+     <%= f.text_area(:body, class: 'input-text', rows: 4, placeholder: t('components.comment_form.placeholder')) %>
+     <%= f.submit t('components.comment_form.send'), class: 'btn--black' %>
+    <% end %>
+  <% end %>
+</div>

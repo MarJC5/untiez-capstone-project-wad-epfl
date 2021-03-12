@@ -1,0 +1,29 @@
+<a class="user-card--full" href="<%= url %>">
+  <div class="relative">
+    <% if avatar_upload.present? %>
+      <img src="<%= avatar_upload %>" alt="<%= firstname %> <%= lastname %> - profile picture" class="avatar">
+      <% else %>
+        <%= image_tag avatar, :class => "avatar" %>
+    <% end %>
+    <% if verified %>
+      <span class="verified">
+        <%= svg 'verified' %>
+      </span>
+    <% end %>
+  </div>
+  <div class="user-info">
+    <div class="user-name">
+      <p><span><%= firstname %></span><%= lastname %></p>
+    </div>
+    <div class="user-followers">
+      <div>
+        <span class="opacity-75"><%= followees_num %></span> <!-- List of followers users -->
+        <span>followers</span>
+      </div>
+      <div>
+        <span class="opacity-75"><%= followers_num %></span> <!-- List of following users -->
+        <span>following</span>
+      </div>
+    </div>
+  </div>
+</a>

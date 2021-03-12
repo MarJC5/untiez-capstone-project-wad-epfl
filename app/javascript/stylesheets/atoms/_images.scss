@@ -1,0 +1,55 @@
+// IMAGES MIXIN
+@mixin avatar-type($height, $width) {
+  height: $height;
+  width: $width;
+}
+// AVATAR
+
+.avatar {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+
+  &--bordered {
+    @extend .avatar;
+    @include avatar-type(70px, 70px);
+    @apply p-1 shadow;
+  }
+
+  &--small {
+    @extend .avatar;
+    @include avatar-type(30px, 30px);
+  }
+
+  &--bordered-small {
+    @extend .avatar;
+    @include avatar-type(40px, 40px);
+    background-color: #FFF;
+    @apply border-2 border-white;
+  }
+}
+// CARD IMAGE
+
+.card-image {
+  border-radius: 0;
+  height: auto;
+  width: 100%;
+
+  &--rounded {
+    @extend .card-image;
+    border-radius: 0.50rem;
+  }
+
+  &--rounded-top {
+    @extend .card-image;
+    border-top-left-radius: 0.50rem;
+    border-top-right-radius: 0.50rem;
+  }
+}
+// icons
+
+.feather-arrow-left-circle {
+  height: 20px;
+  width: 20px;
+}

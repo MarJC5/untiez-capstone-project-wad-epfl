@@ -1,0 +1,32 @@
+<div class="joiners-section">
+  <% if logged_in? %>
+    <!-- LEAVE BUTTON -->
+    <% if is_member? %>
+      <%= form_tag user_trip_path(current_user), method: :delete do %>
+        <%= hidden_field_tag :post_id, post.id %>
+        <%= button_tag type: "submit", class: "btn--svg-text--black mb-6" do %>
+            <%= svg 'close' %> <%= t('components.joiners_info.leave') %>
+        <% end %>
+      <% end %>
+    <% else %>
+    <!-- JOIN BUTTON -->
+      <%= form_tag user_trips_path(current_user), method: :post do %>
+        <%= hidden_field_tag :post_id, post.id %>
+        <%= button_tag type: "submit", class: "btn--svg-text mb-6" do %>
+            <%= svg 'add' %> <%= t('components.joiners_info.join') %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <!-- JOINERS LIST -->
+  <% if post.users.present? %>
+    <%= render partial: 'application/user/users_group',
+               locals: {
+                 url: joiners_path(post),
+                  users: post.users.order(created_at: :desc).limit(3)
+                }
+    %>
+    <!-- JOINERS COUNT -->
+    <p><%= post.users.count%> <%= t('components.joiners_info.count') %></p>
+  <% end %>
+</div>

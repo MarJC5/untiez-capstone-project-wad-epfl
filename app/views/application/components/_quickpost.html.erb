@@ -1,0 +1,13 @@
+<div class="sidebar-quickpost">
+  <h4><%= t('components.sidenav.title.quickpost') %></h4>
+  <%= form_for(@post) do |f| %>
+    <%= f.text_field :title, class: 'input mb-4', placeholder: t('components.sidenav.quickpost.title') %>
+    <%= f.text_area :body, class: 'input', rows: '8', cols: '80', placeholder: t('components.sidenav.quickpost.body') %>
+    <%= f.text_field :category_id, class: 'hidden', value: 1 %>
+    <%= f.text_field :user, class: 'hidden', value: current_user.id %>
+    <div class="sidebar-quickpost__buttons">
+      <%= f.submit t('helpers.create'), class: 'btn--svg-text--black' %>
+      <a class="btn--svg-text"  href="<%= new_post_path %>"><%= svg 'more' %> <%= t('components.sidenav.button.more') %></a>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: User1
+  lastname: Test1
+  pseudo: user1
+  confirmed: false
+  email: test_user1@test.com
+  avatar: samples/avatar-1.png
+  role: admin
+  bio: "Hi I'm User 1"
+  location: Userland 1
+  password_digest: MyString1
+  slug: user1
+  id: 1
+
+two:
+  firstname: User2
+  lastname: Test2
+  pseudo: user2
+  confirmed: true
+  email: test_user2@test.com
+  avatar: samples/avatar-2.png
+  role: admin
+  bio: "Hi I'm User 2"
+  location: Userland 2
+  password_digest: MyString2
+  slug: user2
+  id: 2

@@ -1,0 +1,58 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+html {
+  font-size: 100%;
+}
+/*16px*/
+body {
+  font-weight: 400;
+  line-height: 1.65;
+  font-family: 'Nunito', sans-serif;
+  color: $black;
+}
+// HEADER
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: 3.052em;
+}
+
+h2 {
+  font-size: 2.441em;
+}
+
+h3 {
+  font-size: 1.953em;
+}
+
+h4 {
+  font-size: 1.563em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+// TEXT
+
+p {
+  margin-bottom: 1.15rem;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.text_small,
+small {
+  font-size: 0.8em;
+}

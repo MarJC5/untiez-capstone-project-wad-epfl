@@ -1,0 +1,31 @@
+
+<% case @post.category.name %>
+  <% when 'trip-proposal' %>
+  <!-- TRIP-PROPOSAL -->
+    <div class="md:hidden">
+      <!-- POST MAP VIEW MOBILE -->
+      <% if @post.location.present?%>
+        <div id="post-map-mobile"></div>
+      <% end %>
+      <!-- MOBILE JOINERS INFO -->
+      <%= render partial: 'application/components/joiners_info',
+                 locals: {
+                   post: @post
+                  }
+      %>
+    </div>
+  <% when 'photoshoot' %>
+  <!-- PHOTOSHOOT -->
+    <div class="md:hidden mb-6">
+        <hr/>
+      <!-- POST MAP VIEW MOBILE -->
+      <% if @post.location.present?%>
+      <div class="flex flex-col mt-6">
+        <div class="flex items-center justify-center">
+          <%= svg 'pin' %> <small class="font-bold ml-1"><%= t('user.account.text.living_at') %></small>
+        </div>
+        <p class="text-center mt-4"><%= @post.location %></p>
+      </div>
+      <% end %>
+    </div>
+<% end %>

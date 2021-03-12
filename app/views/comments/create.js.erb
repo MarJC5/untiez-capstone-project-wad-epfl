@@ -1,0 +1,25 @@
+var comment = {
+  'postId': '<%= @comment.id %>',
+  'body': '<%= @comment.body %>',
+  'user': '<%= @comment.user.id %>',
+  'verified': '<%= @comment.user.confirmed %>',
+  'userPseudo': '<%= @comment.user.pseudo %>',
+  'userAvatar': '<%= @comment.user.avatar %>',
+  'userAvatarUpload': '<%= @comment.user.avatar_upload %>',
+  'date': '<%= time_ago_in_words(@comment.created_at) %>'
+}
+
+var commentCount = {
+  'postId': '<%= @comment.post.id %>',
+  'count':  '<%= @post.comments.size %>'
+}
+
+var newText = {
+  'value': ''
+}
+
+Comments.buildComment(comment)
+
+Comments.count(commentCount)
+
+Comments.clearText(newText)

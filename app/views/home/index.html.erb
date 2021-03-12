@@ -1,0 +1,73 @@
+<div class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <div class="main-banner">
+      <h1><%= t('home.banner.title') %></h1>
+      <a href="<%= discover_path %>" class="btn--black">
+        <%= t('home.banner.button') %>
+      </a>
+    </div>
+    <div class="page-cards-nav-list">
+      <div class="page-card-nav">
+        <div>
+          <h4><%= t('home.cards.photoshoot.title') %></h4>
+          <p><%= t('home.cards.photoshoot.text') %></p>
+        </div>
+        <div class="page-card-nav__button">
+          <div class="page-card-nav__image">
+            <%= svg 'photoshoot' %>
+          </div>
+          <a href="<%= discover_photoshoots_path  %>">
+            <%= svg 'arrow-right' %>
+          </a>
+        </div>
+      </div>
+      <div class="page-card-nav">
+        <div>
+          <h4><%= t('home.cards.tips.title') %></h4>
+          <p><%= t('home.cards.tips.text') %></p>
+        </div>
+        <div class="page-card-nav__button">
+          <div class="page-card-nav__image">
+            <%= svg 'tips' %>
+          </div>
+          <a href="<%= discover_tips_path  %>">
+            <%= svg 'arrow-right' %>
+          </a>
+        </div>
+      </div>
+      <div class="page-card-nav">
+        <div>
+          <h4><%= t('home.cards.trips.title') %></h4>
+          <p><%= t('home.cards.trips.text') %></p>
+        </div>
+        <div class="page-card-nav__button">
+          <div class="page-card-nav__image">
+            <%= svg 'trip-proposal' %>
+          </div>
+          <a href="<%= discover_trips_path  %>">
+            <%= svg 'arrow-right' %>
+          </a>
+        </div>
+      </div>
+      <div class="page-card-nav">
+        <div>
+          <h4><%= t('home.cards.create.title') %></h4>
+          <p><%= t('home.cards.create.text') %></p>
+        </div>
+        <div class="page-card-nav__button">
+          <div class="page-card-nav__image">
+            <%= svg 'post' %>
+          </div>
+          <a href="<%= new_post_path %>">
+            <%= svg 'arrow-right' %>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>

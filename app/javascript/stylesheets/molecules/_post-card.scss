@@ -1,0 +1,254 @@
+// POST CARDS
+
+.post-card {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.06);
+  background-color: #FFF;
+
+  .post-card__images {
+    min-height: 150px;
+  }
+
+  .user-card--text {
+    @apply rounded-full;
+    z-index: 10;
+    max-width: 235px;
+    position: relative;
+    margin: 1rem;
+    background-color: rgba(#FFF, 0.9);
+
+    .avatar {
+      padding: 0.25rem;
+      height: 50px;
+      width: 50px;
+    }
+
+    .user-info {
+      font-size: small;
+
+      .user-fullname {
+        display: none;
+      }
+    }
+  }
+
+  .post-card__description {
+    margin: 1rem 1.5rem 0;
+    font-size: 0.875rem;
+
+    hr {
+      color: $stone;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
+  }
+
+  .post-card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+
+    div {
+      display: flex;
+
+      a {
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+
+        svg {
+          margin-right: 0.5rem;
+          font-size: 0.875rem;
+          width: 16px;
+        }
+      }
+    }
+  }
+
+  &--full {
+    @extend .post-card;
+    padding: 0;
+
+    img {
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .post-card-path {
+      height: 80%;
+      width: 100%;
+      z-index: 5;
+      position: absolute;
+    }
+
+    .user-card--text {
+      position: absolute;
+      margin: 1.5rem;
+    }
+  }
+
+  &--image {
+    @extend .post-card;
+    padding: 0;
+
+    img {
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .post-card-path {
+      height: 100%;
+      width: 100%;
+      z-index: 5;
+      position: absolute;
+    }
+
+    .user-card--text {
+      position: absolute;
+      margin: 1.5rem;
+    }
+
+    .post-card-buttons {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      width: calc(100% - 3rem);
+      color: #FFF;
+      z-index: 10;
+
+      .post-buttons--liked,
+      .post-buttons--unliked {
+        svg {
+          stroke: $tomato;
+          fill: $tomato;
+        }
+      }
+
+      .post-buttons--favorit {
+        svg {
+          stroke: $mustard;
+          fill: $mustard;
+        }
+      }
+    }
+  }
+
+  &--proposal {
+    @extend .post-card;
+
+    .user-card--text {
+      position: inherit;
+      margin: 0 1.5rem;
+      padding-top: 1rem;
+    }
+
+    svg {
+      stroke: $ocean;
+    }
+
+    .post-card-buttons {
+      div {
+        a {
+          svg {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .post-card-buttons__users {
+      p {
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        svg {
+          height: 16px;
+          width: 16px;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    .post-card__description {
+      margin: 1rem 1.5rem 0;
+
+      ul {
+        padding: 0;
+        margin-bottom: 2rem;
+
+        li {
+          display: flex;
+          align-items: center;
+          font-size: 0.875rem;
+
+          p {
+            margin-bottom: 0;
+          }
+
+          svg {
+            height: 16px;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+// POST CARD SVG BUTTON LINKS
+
+.post-card {
+  .post-buttons--favorit {
+    svg {
+      stroke: $mustard;
+      fill: $mustard;
+    }
+  }
+
+  .like {
+    svg {
+      stroke: $tomato;
+    }
+  }
+
+  .post-buttons--users {
+    .more-svg {
+      margin: 0;
+    }
+  }
+
+  .post-buttons--comments {
+    svg {
+      stroke: $rock;
+      fill: $rock;
+    }
+  }
+}
+// LARGE SCREEN
+@media (min-width: $medium) {
+  .post-card {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+}
+@media (min-width: $extra-large) {
+  .post-card {
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+}

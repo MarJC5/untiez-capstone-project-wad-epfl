@@ -1,0 +1,61 @@
+<div id="follows-page" class="main-content--half">
+  <div class="main-content__side--left">
+    <!-- SIDEBAR NAVIGATION -->
+    <%= render partial: 'application/layouts/sidebar_account'%>
+  </div>
+  <div class="main-content__center">
+    <!-- PAGE CONTENT-->
+    <h2><%= @user.firstname %> <%= @user.lastname %></h2>
+    <div class="follow-stats">
+      <div>
+        <p id="btn--following" class="font-bold"><span><%= @user.followers.count %></span> Followers</p> <!-- button of received follower -->
+        <p id="btn--follow"><span><%= @user.followees.count %></span> Following</p> <!-- button of created the follow-->
+      </div>
+    </div>
+    <%= link_to user_path(params[:id]), class: 'flex justify-center items-center' do %>
+      <span class="mr-2"><%= svg 'arrow-left-circle' %></span> <%= t('components.back_link') %>
+    <% end %>
+    <hr class="my-10"/>
+    <!-- list of created the follow regrading follower_id -->
+    <div class="followees">
+      <div class="follow-list">
+        <% @user.followers.each do |follower| %>
+          <%= render partial: 'application/user/user_card_text',
+                     locals: {
+                        url: user_path(follower),
+                        avatar: follower.avatar,
+                        avatar_upload: follower.avatar_upload,
+                        pseudo: follower.pseudo,
+                        verified: follower.confirmed,
+                        firstname: '',
+                        lastname: '',
+                        text: t('user.account.text.see_profile'),
+                        user: follower
+                      }
+          %>
+        <% end %>
+      </div>
+    </div>
+    <!-- list of received follower regrading followee_id -->
+    <div class="followers hidden">
+      <div class="follow-list--following">
+        <% @user.followees.each do |followee| %>
+          <%= render partial: 'application/user/user_card_text',
+                     locals: {
+                        url: user_path(followee),
+                        avatar: followee.avatar,
+                        avatar_upload: followee.avatar_upload,
+                        pseudo: followee.pseudo,
+                        verified: followee.confirmed,
+                        firstname: '',
+                        lastname: '',
+                        text: t('user.account.text.see_profile'),
+                        user: followee
+                      }
+          %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

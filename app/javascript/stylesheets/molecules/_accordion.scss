@@ -1,0 +1,35 @@
+.accordion {
+
+  label:after {
+    content: '+';
+    position: absolute;
+    right: 1em;
+    font-weight: bold;
+    color: $ocean;
+    cursor: pointer;
+  }
+
+  input:checked + label:after {
+    content: '-';
+    line-height: 0.8em;
+    font-weight: bold;
+    color: $ocean;
+    cursor: pointer;
+  }
+
+  .accordion__content {
+    max-height: 0;
+    display: none;
+    transition: all 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+  }
+
+  .accordion__body {
+    font-size: small;
+  }
+
+  input[name='panel']:checked ~ .accordion__content {
+    /* Get this as close to what height you expect */
+    display: block;
+    max-height: 200rem;
+  }
+}

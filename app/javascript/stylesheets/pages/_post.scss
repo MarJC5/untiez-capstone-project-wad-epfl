@@ -1,0 +1,140 @@
+.post-content {
+  p {
+    margin-bottom: 1rem;
+    font-weight: lighter;
+  }
+
+  .user-card--text {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+  }
+}
+
+.post-form-tuto {
+  padding-bottom: 4rem;
+
+  ol {
+    margin: 1rem auto;
+  }
+}
+
+.main-content__side--right {
+  .post-show-edit {
+    display: flex;
+    margin: 1rem 0;
+
+    .btn {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.post-show-buttons-list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  .post-buttons {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+
+    &--comments {
+      @extend .post-buttons;
+
+      &:hover {
+        svg {
+          stroke: $stone;
+        }
+      }
+    }
+
+    &--unliked {
+      @extend .post-buttons;
+    }
+
+    &--liked {
+      @extend .post-buttons;
+    }
+
+    &--favorit {
+      @extend .post-buttons;
+
+      &:hover {
+        svg {
+          stroke: $mustard;
+        }
+      }
+    }
+  }
+}
+
+#post-mobile-view {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .post-show-buttons-list {
+    margin: 1rem 0;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  img {
+    margin-top: 1rem;
+  }
+
+  .post-show-edit {
+    display: flex;
+    margin: 2rem auto;
+
+    a {
+      margin-right: 1rem;
+    }
+  }
+}
+
+#post-map,
+#post-map-mobile {
+  height: 300px;
+  width: 100%;
+  border-radius: 0.5rem;
+  //background-color: $stone;
+  .mapboxgl-ctrl-attrib-inner {
+    font-size: small;
+  }
+
+  .mapboxgl-canvas {
+    border-radius: 0.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.joiners-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+@media (min-width: $medium) {
+  #post-mobile-view {
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+#search-page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .search-result {
+    width: 100%;
+
+    .user-card--text {
+      margin: 1rem 0;
+
+      .avatar {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+
+  .search-result-term {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.06);
+    background-color: #FFF;
+    margin: 1rem;
+    padding: 1rem;
+
+    h4 {
+      @extend .gradient-text;
+      text-transform: uppercase;
+    }
+
+    a {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}

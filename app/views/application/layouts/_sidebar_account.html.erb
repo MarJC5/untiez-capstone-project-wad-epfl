@@ -1,0 +1,93 @@
+<div class="flex flex-col w-full h-full">
+  <% if logged_in? %> <!-- current_user.present? -->
+  <div class="main-navbar">
+    <div class="main-navbar__current-user">
+      <div>
+            <%= render partial: 'application/user/user_card',
+                       locals: {
+                         url: user_path(current_user),
+                         avatar: current_user.avatar,
+                         avatar_upload: current_user.avatar_upload,
+                         verified: false,
+                         firstname: current_user.firstname,
+                         lastname: current_user.lastname
+                       }
+            %>
+      </div>
+    </div>
+    <!-- REGISTERED PANEL NAV -->
+    <nav class="main-navbar__nav border-t">
+      <ul>
+        <li>
+          <a href="<%= root_path %>">
+            <%= svg 'home' %> <p><%= t('layout.nav.home') %></p>
+          </a>
+        </li>
+        <li>
+          <a href="<%= discover_path %>">
+            <%= svg 'globe' %> <p><%= t('layout.nav.discover') %></p>
+          </a>
+        </li>
+        <li>
+          <a href="<%= user_path(current_user) %>">
+            <%= svg 'user' %> <p><%= t('layout.nav.account') %></p>
+          </a>
+        </li>
+        <li>
+          <a href="<%= new_post_path %>">
+            <%= svg 'add' %> <p><%= t('layout.nav.add') %></p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="main-navbar__nav border-t">
+      <ul>
+        <li>
+          <a href="<%= edit_user_path(current_user) %>">
+            <%= svg 'settings' %> <p><%= t('layout.nav.settings') %></p>
+          </a>
+        </li>
+        <li>
+          <a href="<%= legals_path %>">
+            <%= svg 'info' %> <p><%= t('layout.nav.terms') %></p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <% else %>
+    <div class="main-navbar">
+      <div class="main-navbar__current-user">
+        <div>
+              <%= render partial: 'application/user/user_card_anonyme',
+                          locals: {
+                            signin: login_path,
+                            signup: signup_path
+                          }
+              %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <!-- ADMIN PANEL -->
+  <% if is_admin?(current_user) %> <!-- is_admin.present? -->
+    <div class="main-navbar--admin">
+      <nav class="main-navbar__nav">
+        <h6><%= current_user.role %> - panel</h6>
+        <ul>
+          <li>
+            <a href="<%= styleguide_index_path %>">
+              <%= svg 'layers' %> <p>Styleguide</p>
+            </a>
+          </li>
+          <li>
+            <a href="<%= new_legal_path %>">
+              <%= svg 'add' %> <p>Legal</p>
+            </a>
+          </li>
+        </ul>
+    </nav>
+  </div>
+  <% end %>
+  <%= render partial: 'application/components/copyright'%>
+</div>

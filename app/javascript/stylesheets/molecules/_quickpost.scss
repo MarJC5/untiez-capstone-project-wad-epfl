@@ -1,0 +1,37 @@
+// QUICKPOST COMPONENT
+
+.sidebar-quickpost {
+  width: 100%;
+
+  h4 {
+    margin-bottom: 1rem;
+    @extend .gradient-text;
+  }
+
+  textarea {
+    height: 5.5rem;
+    padding: 0.5rem;
+  }
+
+  .sidebar-quickpost__buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    a,
+    button,
+    input {
+      margin: 1rem 0 0 0.5rem;
+    }
+  }
+}
+@media (min-width: $medium) {
+  .sidebar-quickpost {
+    .sidebar-quickpost__buttons {
+      a,
+      button,
+      input {
+        margin: 1rem 0.5rem 0 0;
+      }
+    }
+  }
+}
