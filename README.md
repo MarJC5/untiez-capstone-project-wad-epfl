@@ -43,7 +43,7 @@ Follow the step to start a server in **development** mode for the initial config
 
 ```
 yarn install
-rake db:drop db:create db:migrate db:seed
+rake db:drop db:create db:migrate db:seed (PS: As this is a clone repo, the AWS Key will return an error)
 rails server
 ```
 
